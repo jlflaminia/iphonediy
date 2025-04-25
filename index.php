@@ -17,7 +17,8 @@
           <li><a href="#about">About</a></li>
           <li><a href="#categories">Categories</a></li>
           <li><a href="#news">News</a></li>
-          <li><a href="#login">Login</a></li>
+          <!-- <li><a href="#login">Login</a></li> -->
+          <li><a href="#login" onclick="openLoginModal()">Login</a></li>
         </ul>
       </div>
     </nav>
@@ -33,7 +34,8 @@
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
           <li><a href="#categories" onclick="toggleMenu()">Categories</a></li>
           <li><a href="#news" onclick="toggleMenu()">News</a></li>
-          <li><a href="#login" onclick="toggleMenu()">Login</a></li>
+          <!-- <li><a href="#login" onclick="toggleMenu()">Login</a></li> -->
+          <li><a href="#login" onclick="openLoginModal()">Login</a></li>
         </div>
       </div>
     </nav>
@@ -41,19 +43,21 @@
     <!-- Login Modal -->
 <div id="login-modal" class="modal">
   <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h2>Login</h2>
+    <!-- <span class="close-btn">&times;</span> -->
+    <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+    <h2 class="teks">Login</h2>
     <form action="login.php" method="POST" class="login-form">
       <input type="text" name="username" placeholder="Username" class="login-input" required />
       <input type="password" name="password" placeholder="Password" class="login-input" required />
       <button type="submit" class="btn login-btn">Login</button>
     </form>
+    <p>New user? <a href="#" id="register-btn">Create an account</a>.</p>
   </div>
 </div>
 
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/logo.png" alt="John Doe profile picture" />
+        <img src="./assets/logo.png" alt="Master DIY logo" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Welcome to</p>
@@ -149,12 +153,12 @@
     </section>
     <footer>
       <nav>
-        <div class="nav-links-container">
+        <div>
           <ul class="nav-links">
+            <li><a href="#profile">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#categories">Categories</a></li>
             <li><a href="#news">News</a></li>
-            <li><a href="#login">Login</a></li>
           </ul>
         </div>
       </nav>
