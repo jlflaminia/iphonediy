@@ -37,6 +37,20 @@
         </div>
       </div>
     </nav>
+    <!-- <button id="login-btn" class="btn btn-color-2">Login</button>  -->
+    <!-- Login Modal -->
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Login</h2>
+    <form action="login.php" method="POST" class="login-form">
+      <input type="text" name="username" placeholder="Username" class="login-input" required />
+      <input type="password" name="password" placeholder="Password" class="login-input" required />
+      <button type="submit" class="btn login-btn">Login</button>
+    </form>
+  </div>
+</div>
+
     <section id="profile">
       <div class="section__pic-container">
         <img src="./assets/logo.png" alt="John Doe profile picture" />
