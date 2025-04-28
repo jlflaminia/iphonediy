@@ -17,8 +17,12 @@
           <li><a href="#about">About</a></li>
           <li><a href="#categories">Categories</a></li>
           <li><a href="#news">News</a></li>
-          <!-- <li><a href="#login">Login</a></li> -->
-          <li><a href="#login" onclick="openLoginModal()">Login</a></li>
+          <!-- <li><a href="#login" onclick="openLoginModal()">Login</a></li> -->
+            <?php if (isset($_SESSION['username'])): ?>
+                <li><a href="logout.php">Logout</a></li>
+            <?php else: ?>
+                <li><a href="#" id="login-btn">Login</a></li>
+            <?php endif; ?>
         </ul>
       </div>
     </nav>
@@ -39,8 +43,8 @@
         </div>
       </div>
     </nav>
-    <!-- <button id="login-btn" class="btn btn-color-2">Login</button>  -->
-    <!-- Login Modal -->
+
+    <!-- Login -->
 <div id="login-modal" class="modal">
   <div class="modal-content">
     <!-- <span class="close-btn">&times;</span> -->
@@ -54,6 +58,20 @@
     <p>New user? <a href="#" id="register-btn">Create an account</a>.</p>
   </div>
 </div>
+
+  <!-- Register -->
+  <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="teks">Register</h2>
+            <form action="register.php" method="POST">
+                <input type="text" id="reg-username" name="username" placeholder="Username" class="login-input" required>
+                <input type="password" id="reg-password" name="password" placeholder="Password" class="login-input" required>
+                <input type="email" id="email" name="email" placeholder="Email" class="login-input" required>
+                <button type="submit" class="btn login-btn">Register</button>
+            </form>
+        </div>
+    </div>
 
     <section id="profile">
       <div class="section__pic-container">
@@ -102,7 +120,7 @@
           </div>
         </div>
       </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#categories'"/>
+      <img src="./assets/ar.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#categories'"/>
     </section>
     
     <section id="categories">
@@ -111,8 +129,8 @@
       <div class="main-details-container">
       <div class="about-containers">
         <div class="details-container color-container cat">
-          <img src="./categories/phone.png" alt="Category 1" class="project-img"/>
-          <p class="section__text__p1">Phone</p>
+          <img src="./categories/appliances.png" alt="Category 1" class="project-img"/>
+          <p class="section__text__p1">Appliance</p>
         </div>
         <div class="details-container color-container cat">
           <img src="./categories/computer.png" alt="Category 2" class="project-img"/>
@@ -123,12 +141,12 @@
           <p class="section__text__p1">Household</p>
         </div>
         <div class="details-container color-container cat">
-          <img src="./categories/appliances.png" alt="Category 4" class="project-img"/>
-          <p class="section__text__p1">Appliance</p></div>
+          <img src="./categories/phone.png" alt="Category 4" class="project-img"/>
+          <p class="section__text__p1">Phone</p></div>
       </div>
       </div>
       
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#news'"/>
+      <img src="./assets/ar.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#news'"/>
 
     </section>
 
@@ -136,7 +154,7 @@
       <h1 class="title">News</h1>
       <p class="section__text__p1">Stay Updated: Latest Tips and Trends in DIY Repairs!</p>
 
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'"/>
+      <img src="./assets/ar.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'"/>
     
     </section>
     <section id="contact">
@@ -144,7 +162,7 @@
       <h1 class="title">Contact Us</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon"/>
+          <img src="./assets/mail.png" alt="Email icon" class="icon contact-icon email-icon"/>
           <p><a href="mailto:masterdiy@gmail.com">masterdiy@gmail.com</a></p>
         </div>
         

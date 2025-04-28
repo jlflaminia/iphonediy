@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
@@ -8,6 +7,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  /* background-color: #e8ecef; */
 }
 
 html {
@@ -18,14 +18,14 @@ p {
   color: rgb(85, 85, 85);
 }
 
-/* TRANSITION */
+/* button trans */
 
 a,
 .btn {
   transition: all 300ms ease;
 }
 
-/* DESKTOP NAV */
+/* navigation */
 
 nav,
 .nav-links {
@@ -57,15 +57,28 @@ a:hover {
   text-decoration-color: rgb(181, 181, 181);
 }
 
+  /* #desktop-nav .logo {
+    font-size: 2.3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #01f1fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+  } */
+
 .logo {
   font-size: 2rem;
+  /* font-weight: bold; */
+  /* background: linear-gradient(90deg, #01f1fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 
 .logo:hover {
   cursor: default;
 }
 
-/* HAMBURGER MENU */
+/* menu nav */
 
 #hamburger-nav {
   display: none;
@@ -145,7 +158,7 @@ a:hover {
   transform: none;
 }
 
-/* SECTIONS */
+/* sections */
 
 section {
   padding-top: 4vh;
@@ -159,7 +172,7 @@ section {
   display: flex;
 }
 
-/* PROFILE SECTION */
+/* profile */
 
 #profile {
   display: flex;
@@ -202,6 +215,10 @@ section {
 .title {
   font-size: 3rem;
   text-align: center;
+  /* background: linear-gradient(90deg, #01f1fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+
 }
 
 #socials-container {
@@ -211,14 +228,14 @@ section {
   gap: 1rem;
 }
 
-/* ICONS */
+/* icon */
 
 .icon {
   cursor: pointer;
   height: 2rem;
 }
 
-/* BUTTONS */
+/* buttons */
 
 .btn-container {
   display: flex;
@@ -267,7 +284,7 @@ section {
   gap: 1rem;
 }
 
-/* sections */
+/* #sections */
 
 #about {
   position: relative;
@@ -396,7 +413,7 @@ section {
   border-color: rgb(163, 163, 163);
 }
 
-/* CONTACT */
+/* contact */
 
 #contact {
   display: flex;
@@ -436,7 +453,7 @@ section {
   height: 2.5rem;
 }
 
-/* FOOTER SECTION */
+/* footer */
 
 footer {
   height: 26vh;
