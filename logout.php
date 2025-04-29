@@ -1,4 +1,3 @@
-<!-- filepath: c:\xampp\htdocs\diy\hapart\logout.php -->
 <?php
 session_start();
 session_unset();

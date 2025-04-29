@@ -70,31 +70,29 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href=".assets/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaqueries.css">
 </head>
 <body>
 <header>
 </header>
+<div class="log-cont">
 <div class="modal-content">
     <h2 class="teks">Login</h2>
 
     <?php if ($error) echo "<p class='error-message'>$error</p>"; ?>
 
     <form method="POST" action="" class="login-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <input class="login-input" type="text" id="username" name="username" placeholder="Username" required>
+        <input class="login-input" type="password" id="password" name="password" placeholder="Password" required>
         
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        
-        <input type="submit" value="Login">
+        <input class="login-btn" type="submit" value="Login">
     </form>
 
-    <!-- <p>Forgot your password? <a href="recover.php">Recover here</a>.</p> -->
     <p>Don't have an account? <a href="register.php">Register here</a>.</p>
 </div>
-
+</div>
 </body>
 </html>
