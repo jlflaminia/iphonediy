@@ -17,12 +17,10 @@
           <li><a href="#about">About</a></li>
           <li><a href="#categories">Categories</a></li>
           <li><a href="#news">News</a></li>
+          <li><a href="login.php">Login</a></li>
           <!-- <li><a href="#login" onclick="openLoginModal()">Login</a></li> -->
-            <?php if (isset($_SESSION['username'])): ?>
-                <li><a href="logout.php">Logout</a></li>
-            <?php else: ?>
-                <li><a href="#" id="login-btn">Login</a></li>
-            <?php endif; ?>
+                <!-- <li><a href="logout.php">Logout</a></li> -->
+                <!-- <li><a href="#" id="login-btn">Login</a></li> -->
         </ul>
       </div>
     </nav>
@@ -45,9 +43,8 @@
     </nav>
 
     <!-- Login -->
-<div id="login-modal" class="modal">
+<!-- <div id="login-modal" class="modal">
   <div class="modal-content">
-    <!-- <span class="close-btn">&times;</span> -->
     <span class="close-btn" onclick="closeLoginModal()">&times;</span>
     <h2 class="teks">Login</h2>
     <form action="login.php" method="POST" class="login-form">
@@ -55,9 +52,9 @@
       <input type="password" name="password" placeholder="Password" class="login-input" required />
       <button type="submit" class="btn login-btn">Login</button>
     </form>
-    <p>New user? <a href="#" id="register-btn">Create an account</a>.</p>
+    <p>New user? <a href="register.php" id="register-btn">Create an account</a>.</p>
   </div>
-</div>
+</div> -->
 
   <!-- Register -->
   <div id="register-modal" class="modal">
@@ -65,11 +62,13 @@
             <span class="close-btn">&times;</span>
             <h2 class="teks">Register</h2>
             <form action="register.php" method="POST">
-                <input type="text" id="reg-username" name="username" placeholder="Username" class="login-input" required>
-                <input type="password" id="reg-password" name="password" placeholder="Password" class="login-input" required>
-                <input type="email" id="email" name="email" placeholder="Email" class="login-input" required>
+                <input type="text" id="username" name="username" placeholder="Username" class="login-input" required>
+                <input type="password" id="password" name="password" placeholder="Password" class="login-input" required>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="login-input" required>
+                <!-- <input type="email" id="email" name="email" placeholder="Email" class="login-input" required> -->
                 <button type="submit" class="btn login-btn">Register</button>
             </form>
+            <p>Already have an account? <a href="index.php">Login here</a>.</p>
         </div>
     </div>
 
