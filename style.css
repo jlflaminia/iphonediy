@@ -162,7 +162,7 @@ a:hover {
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  height: 100vh;
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
@@ -291,7 +291,6 @@ section {
 }
 #categories{
   position: relative;
-  height: 85vh;
 }
 #news{
   position: relative;

@@ -63,7 +63,7 @@ session_start();
 
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/logo.png" alt="Master DIY logo" />
+        <img src="./assets/ip-logo.png" alt="Master DIY logo" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Welcome to</p>
@@ -108,35 +108,50 @@ session_start();
           </div>
         </div>
       </div>
-      <img src="./assets/ar.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#categories'"/>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#categories'"/>
     </section>
     
     <section id="categories">
       <h1 class="title">Categories</h1>
       <p class="section__text__p1">Fix It Right: Your Ultimate DIY Repair Resource.</p>
       <div class="main-details-container">
-      <div class="about-containers">
-        <a href="categories/appliance.html" class="details-container color-container cat">
-        <!-- <div class="details-container color-container cat"> -->
-          <img src="./categories/appliances.png" alt="Category 1" class="project-img"/>
-          <p class="section__text__p1">Appliance</p>
-        <!-- </div> -->
+      <div class="about-containers cat-grid">
+        <a href="categories/iphone16.php" class="details-container color-container cat">
+          <img src="./categories/samp.jpg" alt="Category 1" class="project-img"/>
+          <p class="section__text__p1">iPhone 16</p>
         </a>
-        <div class="details-container color-container cat">
-          <img src="./categories/computer.png" alt="Category 2" class="project-img"/>
-          <p class="section__text__p1">Computer</p>
-        </div>
-        <div class="details-container color-container cat">
-          <img src="./categories/home.png" alt="Category 3" class="project-img"/>
-          <p class="section__text__p1">Household</p>
-        </div>
-        <div class="details-container color-container cat">
-          <img src="./categories/phone.png" alt="Category 4" class="project-img"/>
-          <p class="section__text__p1">Phone</p></div>
-      </div>
+        <a href="categories/iphone15.php" class="details-container color-container cat">
+          <img src="./categories/samp.jpg" alt="Category 2" class="project-img"/>
+          <p class="section__text__p1">iPhone 15</p>
+        </a>
+        <a href="categories/iphone14.php" class="details-container color-container cat">
+          <img src="./categories/samp.jpg" alt="Category 3" class="project-img"/>
+          <p class="section__text__p1">iPhone 14</p>
+        </a>
+        <a href="categories/iphone13.php" class="details-container color-container cat">
+          <img src="./categories/samp.jpg" alt="Category 4" class="project-img"/>
+          <p class="section__text__p1">iPhone 13</p>
+        </a>
+        <a href="categories/iphone12.php" class="details-container color-container cat">
+          <img src="./categories/samp.jpg" alt="Category 5" class="project-img"/>
+          <p class="section__text__p1">iPhone 12</p>
+        </a>
+        <a href="categories/iphone11.php" class="details-container color-container cat">
+          <img src="./categories/samp.jpg" alt="Category 6" class="project-img"/>
+          <p class="section__text__p1">iPhone 11</p>
+        </a>
+        <a href="categories/iphonex.php" class="details-container color-container cat">
+          <img src="./categories/samp.jpg" alt="Category 7" class="project-img"/>
+          <p class="section__text__p1">iPhone XR</p>
+        </a>
+        <a href="categories/iphonex.php" class="details-container color-container cat">
+          <img src="./categories/samp.jpg" alt="Category 8" class="project-img"/>
+          <p class="section__text__p1">iPhone X</p>
+        </a>
+      </div>  
       </div>
       
-      <img src="./assets/ar.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#news'"/>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#news'"/>
 
     </section>
 
@@ -144,7 +159,7 @@ session_start();
       <h1 class="title">News</h1>
       <p class="section__text__p1">Stay Updated: Latest Tips and Trends in DIY Repairs!</p>
 
-      <img src="./assets/ar.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'"/>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'"/>
     
     </section>
     <section id="contact">
@@ -153,7 +168,7 @@ session_start();
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
           <img src="./assets/mail.png" alt="Email icon" class="icon contact-icon email-icon"/>
-          <p><a href="mailto:masterdiy@gmail.com">masterdiy@gmail.com</a></p>
+          <p><a href="mailto:iphonediy@gmail.com">masterdiy@gmail.com</a></p>
         </div>
         
         </div>

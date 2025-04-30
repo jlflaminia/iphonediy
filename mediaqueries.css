@@ -5,6 +5,7 @@
   }
   .about-containers {
     flex-wrap: wrap;
+    margin-top: 2rem;
   }
   #about,
   #categories {
@@ -184,10 +185,49 @@
   background-color: rgb(0, 0, 0);
 }
 
-/* for modal */
+/* modal */
 @media (max-width: 768px) {
   .modal-content {
     width: 90%;
     margin: 20px auto;
   }
 }
+
+
+/* categories grid */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; 
+}
+
+@media (max-width: 768px) {
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+
+/* .about-containers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; 
+}
+
+.details-container {
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px; 
+
+@media (max-width: 768px) {
+  .about-containers {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 480px) {
+  .about-containers {
+    grid-template-columns: 1fr; 
+  }
+}
+} */
