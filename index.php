@@ -9,7 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Master DIY</title>
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/ip-wlogo.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
@@ -116,36 +116,36 @@ session_start();
       <p class="section__text__p1">Fix It Right: Your Ultimate DIY Repair Resource.</p>
       <div class="main-details-container">
       <div class="about-containers cat-grid">
-        <a href="categories/iphone16.php" class="details-container color-container cat">
-          <img src="./categories/samp.jpg" alt="Category 1" class="project-img"/>
+        <a href="categories/ip16.php" class="details-container color-container cat">
+          <img src="./categories/img/ip16.png" alt="Category 1" class="project-img"/>
           <p class="section__text__p1">iPhone 16</p>
         </a>
-        <a href="categories/iphone15.php" class="details-container color-container cat">
-          <img src="./categories/samp.jpg" alt="Category 2" class="project-img"/>
+        <a href="categories/ip15.php" class="details-container color-container cat">
+          <img src="./categories/img/ip15.png" alt="Category 2" class="project-img"/>
           <p class="section__text__p1">iPhone 15</p>
         </a>
-        <a href="categories/iphone14.php" class="details-container color-container cat">
-          <img src="./categories/samp.jpg" alt="Category 3" class="project-img"/>
+        <a href="categories/ip14.php" class="details-container color-container cat">
+          <img src="./categories/img/ip14.png" alt="Category 3" class="project-img"/>
           <p class="section__text__p1">iPhone 14</p>
         </a>
-        <a href="categories/iphone13.php" class="details-container color-container cat">
-          <img src="./categories/samp.jpg" alt="Category 4" class="project-img"/>
+        <a href="categories/ip13.php" class="details-container color-container cat">
+          <img src="./categories/img/ip13.png" alt="Category 4" class="project-img"/>
           <p class="section__text__p1">iPhone 13</p>
         </a>
-        <a href="categories/iphone12.php" class="details-container color-container cat">
-          <img src="./categories/samp.jpg" alt="Category 5" class="project-img"/>
+        <a href="categories/ip12.php" class="details-container color-container cat">
+          <img src="./categories/img/ip12.png" alt="Category 5" class="project-img"/>
           <p class="section__text__p1">iPhone 12</p>
         </a>
-        <a href="categories/iphone11.php" class="details-container color-container cat">
-          <img src="./categories/samp.jpg" alt="Category 6" class="project-img"/>
+        <a href="categories/ip11.php" class="details-container color-container cat">
+          <img src="./categories/img/ip11.png" alt="Category 6" class="project-img"/>
           <p class="section__text__p1">iPhone 11</p>
         </a>
-        <a href="categories/iphonex.php" class="details-container color-container cat">
-          <img src="./categories/samp.jpg" alt="Category 7" class="project-img"/>
+        <a href="categories/ipxs.php" class="details-container color-container cat">
+          <img src="./categories/img/ipxs.png" alt="Category 7" class="project-img"/>
           <p class="section__text__p1">iPhone XR</p>
         </a>
-        <a href="categories/iphonex.php" class="details-container color-container cat">
-          <img src="./categories/samp.jpg" alt="Category 8" class="project-img"/>
+        <a href="categories/ipx.php" class="details-container color-container cat">
+          <img src="./categories/img/ipx.png" alt="Category 8" class="project-img"/>
           <p class="section__text__p1">iPhone X</p>
         </a>
       </div>  
@@ -167,7 +167,7 @@ session_start();
       <h1 class="title">Contact Us</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img src="./assets/mail.png" alt="Email icon" class="icon contact-icon email-icon"/>
+          <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon"/>
           <p><a href="mailto:iphonediy@gmail.com">masterdiy@gmail.com</a></p>
         </div>
         

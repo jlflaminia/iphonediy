@@ -48,7 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("ss", $username, $hashed_password);
 
         if ($stmt->execute()) {
-            $success = "Registration successful! You can now log in.";
+            header("Location: login.php?registered=1");
+                exit;
+            // $success = "Registration successful! You can now log in.";
         } else {
             $error = "Username already exists. Please choose another.";
         }
@@ -66,7 +68,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/ip-wlogo.png" type="image/x-icon">
     <title>Register</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaqueries.css">

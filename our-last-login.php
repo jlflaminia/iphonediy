@@ -1,5 +1,23 @@
 
 <?php
+// session_start();
+// $valid_username = "admin";
+// $valid_password = "password";
+
+// if ($_SERVER["REQUEST_METHOD"] === "POST") {
+//     $username = $_POST["username"];
+//     $password = $_POST["password"];
+
+//     if ($username === $valid_username && $password === $valid_password) {
+//         $_SESSION["username"] = $username;
+//         header("Location: index.php");
+//         exit();
+//     } else {
+//         echo "<script>alert('Invalid username or password'); window.location.href='index.php';</script>";
+//     }
+// }
+
+
 session_start();
 $host = 'localhost';
 $db = 'masterdiy';
@@ -21,25 +39,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username) || empty($password)) {
         $error = "Username and password are required.";
     } else {
-        // Fetch password and usertype from database
-        $stmt = $conn->prepare("SELECT password, usertype FROM users WHERE username = ?");
+        $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($hashed_password, $usertype);
+            $stmt->bind_result($hashed_password);
             $stmt->fetch();
 
             if (password_verify($password, $hashed_password)) {
                 $_SESSION['username'] = $username;
-                $_SESSION['usertype'] = $usertype; 
-
-                if ($usertype === 'admin') {
-                    header("Location: admin.php");
-                } else {
-                    header("Location: index.php");
-                }
+                  header("Location: index.php");
                 exit();
             } else {
                 $error = "Incorrect password.";
@@ -47,12 +58,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else { 
             $error = "No user found with that username.";
         }
+
+        // Check if the user is an admin
+        if (isset($row["usertype"]) && $row["usertype"] == "admin") {
+            $_SESSION["username"] = $username;
+            $_SESSION["usertype"] = "admin";
+            header("Location: admin.php");
+            exit();
+        }
         $stmt->close();
     }
 }
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +99,9 @@ if (isset($_GET['registered']) && $_GET['registered'] == 1) {
 
 <?php if ($registration_success): ?>
     <p>Registration successful! You can now log in.</p>
+    <!-- <div class="section__text__p1">
+        Registration successful! You can now log in.
+    </div> -->
 <?php endif; ?>
 
     <h2 class="teks">Login</h2>
