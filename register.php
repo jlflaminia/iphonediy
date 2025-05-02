@@ -9,10 +9,10 @@
 // }
 
 session_start();
-$host = 'localhost';
+$host = 'hapart.ctsqsqyign71.ap-southeast-1.rds.amazonaws.com';
 $db = 'masterdiy';
-$user = 'root'; 
-$pass = '';
+$user = 'admin'; 
+$pass = 'jljeongyeon1';
 
 $conn = new mysqli($host, $user, $pass, $db);
 
