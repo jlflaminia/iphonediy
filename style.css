@@ -328,7 +328,6 @@ section {
 }
 
 .details-container {
-  padding: 1rem;
   max-width: 300px;
   flex: 1;
   background: white;
@@ -373,7 +372,7 @@ section {
 }
 
 .cat {
-  margin-top: 3rem;
+  margin-top: .3rem;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 

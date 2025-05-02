@@ -29,6 +29,7 @@ $result = $conn->query($query);
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - iPhone DIY</title>
+    <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
     <!-- <link rel="stylesheet" href="admin-dash.css"> -->
