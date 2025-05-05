@@ -86,7 +86,7 @@ session_start();
         <div class="about-containers">
           <div class="details-container color-container sec-cat">
             <div class="imgs-container">
-              <img src="./assets/repair.jpg" alt="Step-by-Step Guides" class="project-img"/>
+              <img src="./assets/samp.jpg" alt="Step-by-Step Guides" class="project-img"/>
             </div>
             <p class="about-info">Learn how to fix anything with simple and instructions.</p>
             <div class="btn-container">
@@ -99,7 +99,7 @@ session_start();
           <div class="details-container color-container sec-cat">
             <div class="imgs-container">
               <img
-                src="./assets/repair2.jpg" alt="Project 2" class="project-img"/>
+                src="./assets/samp.jpg" alt="Project 2" class="project-img"/>
             </div>
             <p class="about-info">Precision tools and thousands of parts to get the job done.</p>
             <div class="btn-container">
@@ -142,7 +142,7 @@ session_start();
         </a>
         <a href="ipxs.php" class="details-container color-container cat">
           <img src="./categories/ipxs.png" alt="Category 7" class="project-img"/>
-          <p class="section__text__p1">iPhone XR</p>
+          <p class="section__text__p1">iPhone XS</p>
         </a>
         <a href="ipx.php" class="details-container color-container cat">
           <img src="./categories/ipx.png" alt="Category 8" class="project-img"/>
@@ -168,7 +168,7 @@ session_start();
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
           <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon"/>
-          <p><a href="mailto:iphonediy@gmail.com">masterdiy@gmail.com</a></p>
+          <p><a href="mailto:iphonediy@gmail.com">iphonediy@gmail.com</a></p>
         </div>
         
         </div>
@@ -185,7 +185,7 @@ session_start();
           </ul>
         </div>
       </nav>
-      <p>Copyright &#169; 2025 Master DIY. All Rights Reserved.</p>
+      <p>Copyright &#169; 2025 iPhone DIY. All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
   </body>

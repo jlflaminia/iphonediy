@@ -1,18 +1,14 @@
 <?php
-// if ($_SERVER["REQUEST_METHOD"] === "POST") {
-//     $username = $_POST["username"];
-//     $password = $_POST["password"];
-//     $confirm_password = $_POST["confirm_password"];
-//     $email = $_POST["email"];
+// session_start();
+// $host = 'hapart.ctsqsqyign71.ap-southeast-1.rds.amazonaws.com';
+// $db = 'masterdiy';
+// $user = 'admin'; 
+// $pass = 'jljeongyeon1';
 
-//     echo "<script>alert('Registration successful!'); window.location.href='index.php#login';</script>";
-// }
-
-session_start();
-$host = 'hapart.ctsqsqyign71.ap-southeast-1.rds.amazonaws.com';
+$host = 'localhost';
 $db = 'masterdiy';
-$user = 'admin'; 
-$pass = 'jljeongyeon1';
+$user = 'root';
+$pass = '';
 
 $conn = new mysqli($host, $user, $pass, $db);
 

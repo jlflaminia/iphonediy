@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2025 at 04:05 AM
+-- Generation Time: May 05, 2025 at 07:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,36 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hapart`
+-- Database: `masterdiy`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `guestbook`
---
-
-CREATE TABLE `guestbook` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `contact_method` enum('phone','email') NOT NULL,
-  `contact_info` varchar(255) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `comments` text NOT NULL,
-  `submission_date` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `guestbook`
---
-
-INSERT INTO `guestbook` (`id`, `first_name`, `last_name`, `contact_method`, `contact_info`, `city`, `comments`, `submission_date`) VALUES
-(1, 'Michael', 'Jackson', 'phone', '09911231231', 'Manila', 'asdasdasd', '2025-03-11 01:52:59'),
-(2, 'Michael', 'Jackson', 'phone', '09911231231', 'Cebu', 'asd', '2025-03-11 01:53:50'),
-(3, 'Leonard', 'Jackson', 'phone', '09911231231', 'Cebu', 'asd', '2025-03-11 01:54:45'),
-(4, 'Patrick', 'Toledo', 'phone', '09911231231', 'Cebu', 'asd', '2025-03-11 01:54:58'),
-(5, 'simeno', 'kulalo', 'email', 'simeon@gmail.com', 'Manila', 'qweqwe', '2025-03-18 02:19:00');
 
 -- --------------------------------------------------------
 
@@ -58,26 +30,25 @@ INSERT INTO `guestbook` (`id`, `first_name`, `last_name`, `contact_method`, `con
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `usertype` varchar(50) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'testuser', '$2y$10$wHkE1U5K1kN5k9.WC.kC1e7k8X6q0jW2VRt0wS3yK1D2pl5t6Pj5O'),
-(2, 'simeon', '$2y$10$aYhWoPwf5Z5mU/j4bYf2h.F0S2f1Cdsqa6erh2LlLgOfgLevd7mwK');
+INSERT INTO `users` (`id`, `username`, `password`, `usertype`) VALUES
+(28, 'ADMIN FLAMINIA', '$2y$10$ywly1EEzh3t9tTizL/KZi.xx6eF/amSoSC4drRGFv/x8Mwbw74HF6', 'admin'),
+(29, 'jlflaminia', '$2y$10$uGBSB1L7FvbmMbBKvdnCzejM8EezaKSbe.4O/SS5PQb0rsfyV.Mh6', 'user'),
+(30, 'simeon', '$2y$10$Za3EJgjguCAnyRN7sCQVBuypClkWGD3Qd4jSJtA3YedjTurYgjCqq', 'user'),
+(31, 'janbona', '$2y$10$NEyjoUAtM2c.0WLijmhJgeg2cpII1QgtXFo5sM38qlg/NDtPwNPKa', 'user'),
+(32, 'lourdes', '$2y$10$AWm.5x0v.aoammPwLAhPnO2a1lkbGB4dMmw6jQC0tLW7uh4ZHVQAq', 'user'),
+(33, 'admin', '$2y$10$a8gHtP4drlqBPOePHRDc1.bjJe7P.E7jUi22am2XBZOS.DUXEg4qq', 'admin');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `guestbook`
---
-ALTER TABLE `guestbook`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -91,16 +62,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `guestbook`
---
-ALTER TABLE `guestbook`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

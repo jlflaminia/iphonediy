@@ -1,10 +1,15 @@
 
 <?php
 session_start();
-$host = 'hapart.ctsqsqyign71.ap-southeast-1.rds.amazonaws.com';
+// $host = 'hapart.ctsqsqyign71.ap-southeast-1.rds.amazonaws.com';
+// $db = 'masterdiy';
+// $user = 'admin'; 
+// $pass = 'jljeongyeon1'; 
+
+$host = 'localhost';
 $db = 'masterdiy';
-$user = 'admin'; 
-$pass = 'jljeongyeon1'; 
+$user = 'root';
+$pass = '';
 
 $conn = new mysqli($host, $user, $pass, $db);
 

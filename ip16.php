@@ -15,7 +15,7 @@ session_start();
 </head>
 <body>
 <nav id="desktop-nav">
-      <div class="logo">iPhone DIY</div>
+      <div class="logo" onclick="location.href='index.php'">iPhone DIY</div>
       <div>
         <ul class="nav-links">
           <?php if (isset($_SESSION['username'])): ?>
