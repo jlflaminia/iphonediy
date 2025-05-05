@@ -62,9 +62,8 @@ session_start();
         <div class="product-info">
             <h1>iPhone 16 Repair</h1>
             <p>Repair and disassembly information for the iPhone 16, released September 20th, 2024. It features a 6.1" OLED display, a 48 MP dual-camera system, and USB-C port.</p>
-            <!-- <p class="rating">Repairability: <span>7 / 10</span></p> -->
             <div class="actions">
-                <button>Create a Guide</button>
+                <button onclick="location.href='guide.php'">Create a Guide</button>
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ session_start();
       <div class="logo">iPhone DIY</div>
       <div>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
+          <!-- <li><a href="#about">About</a></li> -->
           <li><a href="#categories">Categories</a></li>
           <li><a href="#news">News</a></li>
           <?php if (isset($_SESSION['username'])): ?>
@@ -44,7 +44,7 @@ session_start();
           <span></span>
         </div>
         <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <!-- <li><a href="#about" onclick="toggleMenu()">About</a></li> -->
           <li><a href="#categories" onclick="toggleMenu()">Categories</a></li>
           <li><a href="#news" onclick="toggleMenu()">News</a></li>
           <!-- <li><a href="#login" onclick="toggleMenu()">Login</a></li> -->
@@ -79,7 +79,7 @@ session_start();
         </div>
       </div>
     </section>
-    <section id="about">    
+    <!-- <section id="about">    
       <h1 class="title">Master the Art of Repair</h1>
       <p class="section__text__p1">Your one-stop resource for all your repair needs</p>
       <div class="main-details-container">
@@ -109,7 +109,7 @@ session_start();
         </div>
       </div>
       <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#categories'"/>
-    </section>
+    </section> -->
     
     <section id="categories">
       <h1 class="title">Categories</h1>
