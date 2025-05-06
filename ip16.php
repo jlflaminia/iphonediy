@@ -107,5 +107,34 @@ session_start();
     </section>
 
 
+    <?php
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $guide = [
+//         'guide_type' => htmlspecialchars($_POST['guide_type'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'device' => htmlspecialchars($_POST['device'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'part' => htmlspecialchars($_POST['part'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'title' => htmlspecialchars($_POST['title'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'introduction' => htmlspecialchars($_POST['introduction'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'difficulty_estimate' => htmlspecialchars($_POST['difficulty_estimate'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'tools' => htmlspecialchars($_POST['tools'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'parts' => htmlspecialchars($_POST['parts'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'conclusion' => htmlspecialchars($_POST['conclusion'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'step_type' => htmlspecialchars($_POST['step_type'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'wisdom' => htmlspecialchars($_POST['wisdom'] ?? '', ENT_QUOTES | ENT_HTML5),
+//         'created_at' => date('Y-m-d H:i:s')
+//     ];
+
+//     $file = fopen('guides.txt', 'a');
+//     fwrite($file, json_encode($guide) . PHP_EOL);
+//     fclose($file);
+
+//     header('Location: ip16.php');
+//     exit;
+// } else {
+//     header('Location: guide.php');
+//     exit;
+// }
+?>
+
 </body>
 </html>

@@ -82,65 +82,67 @@ textarea {
 }
      </style>
 </head>
+
 <body>
-    <div class="container">
+<div class="container">
         <h1>Create a Guide</h1>
+        <form action="save_guide.php" method="post">
+            <section class="section">
+                <h2>Introduction</h2>
+                <label for="guide-type">What type of guide is this?</label>
+                <input type="text" id="guide-type" name="guide_type" placeholder="Replacement" required>
 
-        <section class="section">
-            <h2>Introduction</h2>
-            <label for="guide-type">What type of guide is this?</label>
-            <input type="text" id="guide-type" placeholder="Replacement">
+                <label for="device">Device</label>
+                <input type="text" id="device" name="device" placeholder="Example: iPhone 16" required>
 
-            <label for="device">Device</label>
-            <input type="text" id="device" placeholder="Example: iPhone 16">
+                <label for="part">What part are you replacing?</label>
+                <input type="text" id="part" name="part" placeholder="battery" required>
 
-            <label for="part">What part are you replacing?</label>
-            <input type="text" id="part" placeholder="battery">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="iPhone 16 battery Replacement" required>
 
-            <label for="title">Title</label>
-            <input type="text" id="title" placeholder="iPhone 16 battery Replacement">
+                <label for="introduction">Introduction</label>
+                <textarea id="introduction" name="introduction" placeholder="Insert introduction here..." required></textarea>
+            </section>
 
-            <label for="introduction">Introduction</label>
-            <textarea id="introduction" placeholder="Insert introduction here..."></textarea>
-        </section>
+            <section class="section">
+                <h2>Details</h2>
+                <label for="difficulty-estimate">Difficulty estimate</label>
+                <select id="difficulty-estimate" name="difficulty_estimate">
+                    <option>No estimate</option>
+                    <option>Easy</option>
+                    <option>Moderate</option>
+                    <option>Difficult</option>
+                </select>
 
-        <section class="section">
-            <h2>Details</h2>
-            <label for="difficulty-estimate">Difficulty estimate</label>
-            <select id="difficulty-estimate">
-                <option>No estimate</option>
-                <option>Easy</option>
-                <option>Moderate</option>
-                <option>Difficult</option>
-            </select>
+                <label for="tools">Tools</label>
+                <input type="text" id="tools" name="tools" placeholder="Add a tool">
 
-            <label for="tools">Tools</label>
-            <input type="text" id="tools" placeholder="Add a tool">
+                <label for="parts">Parts</label>
+                <input type="text" id="parts" name="parts" placeholder="Add a part">
 
-            <label for="parts">Parts</label>
-            <input type="text" id="parts" placeholder="Add a part">
+                <label for="conclusion">Conclusion</label>
+                <textarea id="conclusion" name="conclusion" placeholder="To reassemble your device, follow these instructions in reverse order."></textarea>
+            </section>
 
-            <label for="conclusion">Conclusion</label>
-            <textarea id="conclusion" placeholder="To reassemble your device, follow these instructions in reverse order."></textarea>
-        </section>
+            <section class="section">
+                <h2>Guide Steps</h2>
+                <h3>Editing Step 1 — Add a title</h3>
+                <label for="step-type">Step Type</label>
+                <select id="step-type" name="step_type">
+                    <option>Image</option>
+                    <option>Media</option>
+                </select>
 
-        <section class="section">
-            <h2>Guide Steps</h2>
-            <h3>Editing Step 1 — Add a title</h3>
-            <label for="step-type">Step Type</label>
-            <select id="step-type">
-                <option>Image</option>
-                <option>Media</option>
-            </select>
+                <div class="step-image-placeholder">
+                    <p>+ Image</p>
+                </div>
 
-            <div class="step-image-placeholder">
-                <p>+ Image</p>
-            </div>
-
-            <label for="wisdom">Insert wisdom here:</label>
-            <textarea id="wisdom" placeholder="Insert wisdom here..."></textarea>
-            <button class="save-button">Save</button>
-        </section>
+                <label for="wisdom">Insert wisdom here:</label>
+                <textarea id="wisdom" name="wisdom" placeholder="Insert wisdom here..."></textarea>
+                <button class="save-button" type="submit">Save</button>
+            </section>
+        </form>
     </div>
 </body>
 </html>

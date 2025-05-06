@@ -46,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             header("Location: login.php?registered=1");
                 exit;
-            // $success = "Registration successful! You can now log in.";
         } else {
             $error = "Username already exists. Please choose another.";
         }
