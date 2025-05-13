@@ -1,9 +1,8 @@
-
 <?php
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = ''; 
+$pass = '';
 $submitted = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -26,19 +25,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conclusion = htmlspecialchars($_POST['conclusion']);
 
     // Handle steps, step-type, wisdom as arrays and encode as JSON
-    $steps = isset($_POST['steps']) ? json_encode($_POST['steps']) : json_encode([]);
-    $stepType = isset($_POST['step-type']) ? json_encode($_POST['step-type']) : json_encode([]);
-    $wisdom = isset($_POST['wisdom']) ? json_encode($_POST['wisdom']) : json_encode([]);
+    $steps = isset($_POST['steps']) ? $_POST['steps'] : [];
+    $stepType = isset($_POST['step-type']) ? $_POST['step-type'] : [];
+    $wisdom = isset($_POST['wisdom']) ? $_POST['wisdom'] : [];
 
-    // Prepare an SQL statement
-    $stmt = $conn->prepare("INSERT INTO guides (guide_type, device, part, title, introduction, difficulty_estimate, tools, conclusion, steps, step_type, wisdom) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssssss", $guideType, $device, $part, $title, $introduction, $difficultyEstimate, $tools, $conclusion, $steps, $stepType, $wisdom);
+    // Handle step images
+    $stepImages = [];
+    if (isset($_FILES['step-image'])) {
+        $files = $_FILES['step-image'];
+        $uploadDir = 'uploads/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+        for ($i = 0; $i < count($files['name']); $i++) {
+            if ($files['error'][$i] === UPLOAD_ERR_OK && $files['name'][$i] != '') {
+                $tmpName = $files['tmp_name'][$i];
+                $fileName = uniqid('stepimg_') . '_' . basename($files['name'][$i]);
+                $targetFile = $uploadDir . $fileName;
+                if (move_uploaded_file($tmpName, $targetFile)) {
+                    $stepImages[] = $targetFile;
+                } else {
+                    $stepImages[] = null; // Or handle error
+                }
+            } else {
+                $stepImages[] = null;
+            }
+        }
+    }
+
+    // Encode arrays as JSON
+    $stepsJson = json_encode($steps);
+    $stepTypeJson = json_encode($stepType);
+    $wisdomJson = json_encode($wisdom);
+    $stepImagesJson = json_encode($stepImages);
+
+    // Prepare an SQL statement (add step_images column)
+    $stmt = $conn->prepare("INSERT INTO guides (guide_type, device, part, title, introduction, difficulty_estimate, tools, conclusion, steps, step_type, wisdom, step_images) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssssss", $guideType, $device, $part, $title, $introduction, $difficultyEstimate, $tools, $conclusion, $stepsJson, $stepTypeJson, $wisdomJson, $stepImagesJson);
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "<script>alert('Guide created successfully!');</script>";
-        // Redirect or perform any other action after successful submission
-        // header("Location: success.php");
+        $last_id = $conn->insert_id;
+        header("Location: ip16.php?guide_id=" . $last_id);
         exit();
     } else {
         echo "Error: " . $stmt->error;
@@ -55,7 +83,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Guide</title>
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/guide.css">
@@ -101,16 +128,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div id="steps-section">
                 <div class="step-block">
                     <label>Step Title</label>
-                    <input type="text" name="step-title[]" placeholder="Step Title">
+                    <input type="text" name="step-title[]" placeholder="Title">
 
                     <label>Step</label>
                     <input type="text" name="steps[]" placeholder="Step 1">
-
-                    <label>Step Type</label>
-                    <select name="step-type[]">
-                        <option>Image</option>
-                        <option>Media</option>
-                    </select>
 
                     <label>Add Image</label>
                     <div class="step-image-placeholder" onclick="triggerImageUpload(this)">
@@ -147,12 +168,6 @@ function addStep() {
 
         <label>Step</label>
         <input type="text" name="steps[]" placeholder="Step ${stepCount}">
-
-        <label>Step Type</label>
-        <select name="step-type[]">
-            <option>Image</option>
-            <option>Media</option>
-        </select>
 
         <label>Add Image</label>
         <div class="step-image-placeholder" onclick="triggerImageUpload(this)">

@@ -1,5 +1,40 @@
+
 <?php
 session_start();
+
+$host = 'localhost';
+$db = 'masterdiy';
+$user = 'root';
+$pass = '';
+
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch a single guide if guide_id is set
+$guide = null;
+$guide_selected = false;
+if (isset($_GET['guide_id'])) {
+    $guide_id = intval($_GET['guide_id']);
+    $sql = "SELECT * FROM guides WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $guide_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $guide = $result->fetch_assoc();
+    $stmt->close();
+    $guide_selected = true;
+}
+
+// Fetch all guides for the user section
+$all_guides = [];
+$sql_all = "SELECT id, title, device, part, guide_type FROM guides ORDER BY id DESC";
+$result_all = $conn->query($sql_all);
+while ($row = $result_all->fetch_assoc()) {
+    $all_guides[] = $row;
+}
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -9,9 +44,101 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPhone 16</title>
     <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
-    <<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/iphone-style.css">
+    <style>
+        .guide-title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 20px 0;
+        }
+        .guide-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #222;
+            background: #f8f8f8;
+            padding: 18px 36px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+        .guide-title:hover {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+            background: #eaeaea;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
+            overflow: auto;
+            background: rgba(0,0,0,0.45);
+        }
+        .modal-content {
+            background: #fff;
+            margin: 60px auto;
+            padding: 32px 28px 24px 28px;
+            border-radius: 14px;
+            max-width: 600px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+            position: relative;
+            animation: modalIn 0.25s;
+        }
+        @keyframes modalIn {
+            from { transform: translateY(-40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .close-modal {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 2rem;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close-modal:hover {
+            color: #222;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 1.6rem;
+            color: #1a1a1a;
+        }
+        .modal-content p {
+            margin: 8px 0;
+            color: #444;
+        }
+        .modal-content .step-block {
+            margin: 18px 0 12px 0;
+            padding: 12px 0 0 0;
+            border-top: 1px solid #eee;
+        }
+        .step-image {
+            max-width: 100%;
+            max-height: 220px;
+            display: block;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        .modal-content .step-title {
+            font-weight: 600;
+            color: #2a2a2a;
+        }
+        .modal-content em {
+            color: #007b8a;
+        }
+        @media (max-width: 700px) {
+            .modal-content { max-width: 98vw; padding: 18px 6vw 18px 6vw; }
+            .guide-title { font-size: 1.3rem; padding: 10px 16px; }
+        }
+    </style>
 </head>
 <body>
 <nav id="desktop-nav">
@@ -51,10 +178,6 @@ session_start();
     </nav>
 
     <section id="categories">
-    <!-- <div>
-      <img src="./categories/ip16.png" alt="iPhone 16" class="project-img ip16-img"/>
-      <h1 class="title">iPhone 16</h1>
-    </div> -->
     <div class="container">
         <div class="product-image">
             <img src="./categories/ip16.png" alt="iPhone 16">
@@ -94,47 +217,95 @@ session_start();
           <img src="./ip/chargin-port.png" alt="Category 6" class="project-img"/>
           <p class="section__text__p1">Charging Port</p>
         </a>
-        <!-- <a href="ipxs.php" class="details-container color-container cat">
-          <img src="./ip/" alt="Category 7" class="project-img"/>
-          <p class="section__text__p1">iPhone XR</p>
-        </a>
-        <a href="ipx.php" class="details-container color-container cat">
-          <img src="./ip/" alt="Category 8" class="project-img"/>
-          <p class="section__text__p1">iPhone X</p>
-        </a> -->
       </div>  
       </div>
     </section>
 
+<section class="about">
+  <?php if ($guide): ?>
+        <div id="openGuideModal"></div>
+    <!-- Modal for Guide Details -->
+    <div id="guideModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" id="closeGuideModal">&times;</span>
+        <h2><?php echo htmlspecialchars($guide['title']); ?></h2>
+        <p><strong>Type:</strong> <?php echo htmlspecialchars($guide['guide_type']); ?></p>
+        <p><strong>Device:</strong> <?php echo htmlspecialchars($guide['device']); ?></p>
+        <p><strong>Part:</strong> <?php echo htmlspecialchars($guide['part']); ?></p>
+        <p><strong>Introduction:</strong> <?php echo nl2br(htmlspecialchars($guide['introduction'])); ?></p>
+        <p><strong>Difficulty:</strong> <?php echo htmlspecialchars($guide['difficulty_estimate']); ?></p>
+        <p><strong>Tools:</strong> <?php echo htmlspecialchars($guide['tools']); ?></p>
+        <p><strong>Conclusion:</strong> <?php echo nl2br(htmlspecialchars($guide['conclusion'])); ?></p>
+        <h3>Steps</h3>
+        <?php
+        $steps = json_decode($guide['steps'], true);
+        $wisdom = json_decode($guide['wisdom'], true);
+        $step_images = isset($guide['step_images']) ? json_decode($guide['step_images'], true) : [];
+        if ($steps && count($steps) > 0) {
+            foreach ($steps as $i => $step) {
+                echo "<div class='step-block'>";
+                echo "<span class='step-title'>Step " . ($i+1) . ":</span> " . htmlspecialchars($step) . "<br>";
+                // Show step image if exists
+                if (!empty($step_images[$i])) {
+                    $imgPath = htmlspecialchars($step_images[$i]);
+                    echo "<img src='$imgPath' alt='Step Image' class='step-image'><br>";
+                }
+                if (!empty($wisdom[$i])) {
+                    echo "<em>Wisdom:</em> " . htmlspecialchars($wisdom[$i]) . "<br>";
+                }
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No steps found.</p>";
+        }
+        ?>
+      </div>
+    </div>
+  <?php endif; ?>
 
-    <?php
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $guide = [
-//         'guide_type' => htmlspecialchars($_POST['guide_type'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'device' => htmlspecialchars($_POST['device'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'part' => htmlspecialchars($_POST['part'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'title' => htmlspecialchars($_POST['title'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'introduction' => htmlspecialchars($_POST['introduction'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'difficulty_estimate' => htmlspecialchars($_POST['difficulty_estimate'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'tools' => htmlspecialchars($_POST['tools'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'parts' => htmlspecialchars($_POST['parts'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'conclusion' => htmlspecialchars($_POST['conclusion'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'step_type' => htmlspecialchars($_POST['step_type'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'wisdom' => htmlspecialchars($_POST['wisdom'] ?? '', ENT_QUOTES | ENT_HTML5),
-//         'created_at' => date('Y-m-d H:i:s')
-//     ];
-
-//     $file = fopen('guides.txt', 'a');
-//     fwrite($file, json_encode($guide) . PHP_EOL);
-//     fclose($file);
-
-//     header('Location: ip16.php');
-//     exit;
-// } else {
-//     header('Location: guide.php');
-//     exit;
-// }
-?>
-
+    <div class="user-section">
+        <h2>All Saved Guides</h2>
+          <p>Select a guide from the list below to view details.</p>
+        <ul>
+            <?php foreach ($all_guides as $g): ?>
+                <li>
+                    <a href="ip16.php?guide_id=<?php echo $g['id']; ?>">
+                        <?php echo htmlspecialchars($g['title']); ?> (<?php echo htmlspecialchars($g['device']); ?> - <?php echo htmlspecialchars($g['part']); ?>)
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var openBtn = document.getElementById('openGuideModal');
+    var modal = document.getElementById('guideModal');
+    var closeBtn = document.getElementById('closeGuideModal');
+    // If a guide is selected, open the modal automatically
+    <?php if ($guide_selected): ?>
+        if(modal) {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+    <?php endif; ?>
+    if(openBtn && modal && closeBtn) {
+        openBtn.onclick = function() {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "";
+            }
+        }
+    }
+});
+</script>
 </body>
 </html>
