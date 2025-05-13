@@ -1,148 +1,208 @@
+
+<?php
+$host = 'localhost';
+$db = 'masterdiy';
+$user = 'root';
+$pass = ''; 
+$submitted = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $conn = new mysqli($host, $user, $pass, $db);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Get form data
+    $guideType = htmlspecialchars($_POST['guide-type']);
+    $device = htmlspecialchars($_POST['device']);
+    $part = htmlspecialchars($_POST['part']);
+    $title = htmlspecialchars($_POST['title']);
+    $introduction = htmlspecialchars($_POST['introduction']);
+    $difficultyEstimate = htmlspecialchars($_POST['difficulty-estimate']);
+    $tools = htmlspecialchars($_POST['tools']);
+    $conclusion = htmlspecialchars($_POST['conclusion']);
+
+    // Handle steps, step-type, wisdom as arrays and encode as JSON
+    $steps = isset($_POST['steps']) ? json_encode($_POST['steps']) : json_encode([]);
+    $stepType = isset($_POST['step-type']) ? json_encode($_POST['step-type']) : json_encode([]);
+    $wisdom = isset($_POST['wisdom']) ? json_encode($_POST['wisdom']) : json_encode([]);
+
+    // Prepare an SQL statement
+    $stmt = $conn->prepare("INSERT INTO guides (guide_type, device, part, title, introduction, difficulty_estimate, tools, conclusion, steps, step_type, wisdom) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssss", $guideType, $device, $part, $title, $introduction, $difficultyEstimate, $tools, $conclusion, $steps, $stepType, $wisdom);
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        echo "<script>alert('Guide created successfully!');</script>";
+        // Redirect or perform any other action after successful submission
+        // header("Location: success.php");
+        exit();
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Guide</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mediaqueries.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
-     <style>
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-}
-
-.section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    margin-bottom: 10px;
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input[type="text"],
-textarea,
-input[type="range"],
-select {
-    width: 97%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-textarea {
-    height: 100px;
-    resize: none;
-}
-
-.step-image-placeholder {
-    width: 100%;
-    height: 150px;
-    border: 2px dashed #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    border-radius: 4px;
-}
-
-.save-button {
-    background-color: grey;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    cursor: pointer;
-}
-
-.save-button:hover {
-    background-color: black;
-}
-     </style>
+    <link rel="stylesheet" href="css/guide.css">
 </head>
 
 <body>
-<div class="container">
-        <h1>Create a Guide</h1>
-        <form action="save_guide.php" method="post">
-            <section class="section">
-                <h2>Introduction</h2>
-                <label for="guide-type">What type of guide is this?</label>
-                <input type="text" id="guide-type" name="guide_type" placeholder="Replacement" required>
+    <div class="guide-container">
+        <h1 class="title">Create a Guide</h1>
+        <form method="POST" enctype="multipart/form-data">
+        <section class="section">
+            <h2 class="section__text__p1">Introduction</h2>
+            <label for="guide-type">What type of guide is this?</label>
+            <input type="text" id="guide-type" name="guide-type" placeholder="Replacement" required>
 
-                <label for="device">Device</label>
-                <input type="text" id="device" name="device" placeholder="Example: iPhone 16" required>
+            <label for="device">Device</label>
+            <input type="text" id="device" name="device" placeholder="Device name/model" required>
 
-                <label for="part">What part are you replacing?</label>
-                <input type="text" id="part" name="part" placeholder="battery" required>
+            <label for="part">What part are you replacing?</label>
+            <input type="text" id="part" name="part" placeholder="battery" required>
 
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="iPhone 16 battery Replacement" required>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="iPhone 16 battery Replacement" required>
 
-                <label for="introduction">Introduction</label>
-                <textarea id="introduction" name="introduction" placeholder="Insert introduction here..." required></textarea>
-            </section>
+            <label for="introduction">Introduction</label>
+            <textarea id="introduction" name="introduction" placeholder="Insert introduction here..." required></textarea>
 
-            <section class="section">
-                <h2>Details</h2>
-                <label for="difficulty-estimate">Difficulty estimate</label>
-                <select id="difficulty-estimate" name="difficulty_estimate">
-                    <option>No estimate</option>
-                    <option>Easy</option>
-                    <option>Moderate</option>
-                    <option>Difficult</option>
-                </select>
+            <h2>Details</h2>
+            <label for="difficulty-estimate">Difficulty estimate</label>
+            <select id="difficulty-estimate" name="difficulty-estimate" class="options">
+                <option>No estimate</option>
+                <option>Easy</option>
+                <option>Moderate</option>
+                <option>Difficult</option>
+            </select>
 
-                <label for="tools">Tools</label>
-                <input type="text" id="tools" name="tools" placeholder="Add a tool">
+            <label for="tools">Tools</label>
+            <input type="text" id="tools" name="tools" placeholder="Add tools">
 
-                <label for="parts">Parts</label>
-                <input type="text" id="parts" name="parts" placeholder="Add a part">
+            <label for="conclusion">Conclusion</label>
+            <textarea id="conclusion" name="conclusion" placeholder="To reassemble your device, follow these instructions in reverse order."></textarea>
+            
+            <h2>Guide Steps</h2>
+            <div id="steps-section">
+                <div class="step-block">
+                    <label>Step Title</label>
+                    <input type="text" name="step-title[]" placeholder="Step Title">
 
-                <label for="conclusion">Conclusion</label>
-                <textarea id="conclusion" name="conclusion" placeholder="To reassemble your device, follow these instructions in reverse order."></textarea>
-            </section>
+                    <label>Step</label>
+                    <input type="text" name="steps[]" placeholder="Step 1">
 
-            <section class="section">
-                <h2>Guide Steps</h2>
-                <h3>Editing Step 1 — Add a title</h3>
-                <label for="step-type">Step Type</label>
-                <select id="step-type" name="step_type">
-                    <option>Image</option>
-                    <option>Media</option>
-                </select>
+                    <label>Step Type</label>
+                    <select name="step-type[]">
+                        <option>Image</option>
+                        <option>Media</option>
+                    </select>
 
-                <div class="step-image-placeholder">
-                    <p>+ Image</p>
+                    <label>Add Image</label>
+                    <div class="step-image-placeholder" onclick="triggerImageUpload(this)">
+                        <input type="file" accept="image/*" name="step-image[]" style="display:none" onchange="previewStepImage(this)">
+                        <div class="image-preview">
+                            <span class="plus-icon">+</span>
+                            <span class="image-text">Add Image</span>
+                        </div>
+                    </div>
+
+                    <label>Insert wisdom here:</label>
+                    <textarea name="wisdom[]" placeholder="Insert wisdom here..."></textarea>
                 </div>
+            </div>
+            <button type="button" class="add-step" onclick="addStep()">Add Step</button>
+        </section>
 
-                <label for="wisdom">Insert wisdom here:</label>
-                <textarea id="wisdom" name="wisdom" placeholder="Insert wisdom here..."></textarea>
-                <button class="save-button" type="submit">Save</button>
-            </section>
+        <div>
+            <button type="submit" class="save-button">Save Guide</button>
+        </div>
         </form>
     </div>
+
+<script>
+let stepCount = 1;
+function addStep() {
+    stepCount++;
+    const stepsSection = document.getElementById('steps-section');
+    const stepBlock = document.createElement('div');
+    stepBlock.className = 'step-block';
+    stepBlock.innerHTML = `
+        <label>Step Title</label>
+        <input type="text" name="step-title[]" placeholder="Step Title">
+
+        <label>Step</label>
+        <input type="text" name="steps[]" placeholder="Step ${stepCount}">
+
+        <label>Step Type</label>
+        <select name="step-type[]">
+            <option>Image</option>
+            <option>Media</option>
+        </select>
+
+        <label>Add Image</label>
+        <div class="step-image-placeholder" onclick="triggerImageUpload(this)">
+            <input type="file" accept="image/*" name="step-image[]" style="display:none" onchange="previewStepImage(this)">
+            <div class="image-preview">
+                <span class="plus-icon">+</span>
+                <span class="image-text">Add Image</span>
+            </div>
+        </div>
+
+        <label>Insert wisdom here:</label>
+        <textarea name="wisdom[]" placeholder="Insert wisdom here..."></textarea>
+    `;
+    stepsSection.appendChild(stepBlock);
+}
+
+// Trigger file input when placeholder is clicked
+function triggerImageUpload(placeholderDiv) {
+    const fileInput = placeholderDiv.querySelector('input[type="file"]');
+    fileInput.click();
+}
+
+// Preview the uploaded image
+function previewStepImage(input) {
+    const placeholderDiv = input.closest('.step-image-placeholder');
+    const previewDiv = placeholderDiv.querySelector('.image-preview');
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            previewDiv.innerHTML = `
+                <img src="${e.target.result}" alt="Step Image">
+                <button type="button" class="remove-image-btn" onclick="removeStepImage(this)">×</button>
+            `;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+// Remove the image and reset the placeholder
+function removeStepImage(btn) {
+    const previewDiv = btn.parentElement;
+    const placeholderDiv = previewDiv.closest('.step-image-placeholder');
+    const fileInput = placeholderDiv.querySelector('input[type="file"]');
+    fileInput.value = '';
+    previewDiv.innerHTML = `
+        <span class="plus-icon">+</span>
+        <span class="image-text">Add Image</span>
+    `;
+}
+</script>
+
 </body>
 </html>

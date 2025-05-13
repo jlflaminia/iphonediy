@@ -9,9 +9,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPhone XS</title>
     <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
-    <link rel="stylesheet" href="iphone-style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mediaqueries.css">
+    <link rel="stylesheet" href="css/iphone-style.css">
 </head>
 <body>
 <nav id="desktop-nav">
