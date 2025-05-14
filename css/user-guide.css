@@ -102,7 +102,6 @@
     margin: 2.5rem auto 0 auto;
     max-width: 900px;
     min-width: 320px;
-    transition: box-shadow 0.2s;
   }
   
   .user-section:hover {
