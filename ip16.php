@@ -34,7 +34,38 @@ $result_all = $conn->query($sql_all);
 while ($row = $result_all->fetch_assoc()) {
     $all_guides[] = $row;
 }
+$comment_error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment_submit']) && isset($_SESSION['username']) && isset($_POST['guide_id'])) {
+    $comment_text = trim($_POST['comment_text']);
+    $guide_id = intval($_POST['guide_id']);
+    $username = $_SESSION['username'];
+    if ($comment_text !== '') {
+        $stmt = $conn->prepare("INSERT INTO comments (guide_id, username, comment, created_at) VALUES (?, ?, ?, NOW())");
+        $stmt->bind_param("iss", $guide_id, $username, $comment_text);
+        $stmt->execute();
+        $stmt->close();
+        // Redirect to avoid form resubmission
+        header("Location: ip16.php?guide_id=" . $guide_id);
+        exit();
+    } else {
+        $comment_error = "Comment cannot be empty.";
+    }
+}
+
+// Fetch comments for the selected guide
+$comments = [];
+if ($guide_selected) {
+    $stmt = $conn->prepare("SELECT username, comment, created_at FROM comments WHERE guide_id = ? ORDER BY created_at DESC");
+    $stmt->bind_param("i", $guide_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $comments[] = $row;
+    }
+    $stmt->close();
+}
 $conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +164,7 @@ $conn->close();
 <section class="about">
   <?php if ($guide): ?>
         <div id="openGuideModal"></div>
-    <!-- Modal for Guide Details -->
+        
     <div id="guideModal" class="modal">
       <div class="modal-content">
         <span class="close-modal" id="closeGuideModal">&times;</span>
@@ -185,6 +216,40 @@ $conn->close();
             <?php endforeach; ?>
         </ul>
     </div>
+</section>
+
+<section>
+    <?php if ($guide_selected): ?>
+    <div class="comment-section" style="max-width:600px;margin:2em auto;padding:1em;border:1px solid #ddd;border-radius:8px;background:#fafafa;">
+        <h3>Comments</h3>
+        <?php if (isset($_SESSION['username'])): ?>
+            <form method="post" style="margin-bottom:1em;">
+                <input type="hidden" name="guide_id" value="<?php echo htmlspecialchars($guide_id); ?>">
+                <textarea name="comment_text" rows="3" style="width:100%;padding:0.5em;" placeholder="Write your comment here..."></textarea>
+                <?php if ($comment_error): ?>
+                    <div style="color:red;"><?php echo htmlspecialchars($comment_error); ?></div>
+                <?php endif; ?>
+                <button type="submit" name="comment_submit" style="margin-top:0.5em;">Post Comment</button>
+            </form>
+        <?php else: ?>
+            <p><a href="login.php">Log in</a> to post a comment.</p>
+        <?php endif; ?>
+
+        <?php if (count($comments) > 0): ?>
+            <ul style="list-style:none;padding:0;">
+                <?php foreach ($comments as $c): ?>
+                    <li style="margin-bottom:1em;padding-bottom:0.5em;border-bottom:1px solid #eee;">
+                        <strong><?php echo htmlspecialchars($c['username']); ?></strong>
+                        <span style="color:#888;font-size:0.9em;">on <?php echo htmlspecialchars($c['created_at']); ?></span>
+                        <div style="margin-top:0.3em;"><?php echo nl2br(htmlspecialchars($c['comment'])); ?></div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>No comments yet. Be the first to comment!</p>
+        <?php endif; ?>
+    </div>
+    <?php endif; ?>
 </section>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
