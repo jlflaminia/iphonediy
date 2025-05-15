@@ -66,8 +66,8 @@ $conn->close();
     <link rel="shortcut icon" href="assets/ip-wlogo.png" type="image/x-icon">
     <title>Register</title>
     <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mediaqueries.css">
 </head>
 <body>
 <header>

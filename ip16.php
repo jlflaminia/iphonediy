@@ -52,10 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment_submit']) && 
     }
 }
 
-// Fetch comments for the selected guide
 $comments = [];
 if ($guide_selected) {
-    $stmt = $conn->prepare("SELECT username, comment, created_at FROM comments WHERE guide_id = ? ORDER BY created_at DESC");
+    // Fetch comments for the selected guide
+    $stmt = $conn->prepare("SELECT username, comment, created_at, guide_id FROM comments WHERE guide_id = ? ORDER BY created_at DESC");
     $stmt->bind_param("i", $guide_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -63,8 +63,17 @@ if ($guide_selected) {
         $comments[] = $row;
     }
     $stmt->close();
+} else {
+    // Fetch all comments, join with guides to get guide title
+    $sql = "SELECT c.username, c.comment, c.created_at, c.guide_id, g.title AS guide_title
+            FROM comments c
+            LEFT JOIN guides g ON c.guide_id = g.id
+            ORDER BY c.created_at DESC";
+    $result = $conn->query($sql);
+    while ($row = $result->fetch_assoc()) {
+        $comments[] = $row;
+    }
 }
-$conn->close();
 
 ?>
 
@@ -215,24 +224,25 @@ $conn->close();
                 </li>
             <?php endforeach; ?>
         </ul>
-    </div>
-</section>
-
-<section>
-    <?php if ($guide_selected): ?>
-    <div class="comment-section" style="max-width:600px;margin:2em auto;padding:1em;border:1px solid #ddd;border-radius:8px;background:#fafafa;">
+    </div>    
+    
+    <div class="user-section">
         <h3>Comments</h3>
         <?php if (isset($_SESSION['username'])): ?>
             <form method="post" style="margin-bottom:1em;">
                 <input type="hidden" name="guide_id" value="<?php echo htmlspecialchars($guide_id); ?>">
-                <textarea name="comment_text" rows="3" style="width:100%;padding:0.5em;" placeholder="Write your comment here..."></textarea>
+                <textarea name="comment_text" rows="5" style="width:96%;padding:0.5em; border-radius:18px; margin-top: 15px;" placeholder="Write your comment here..."></textarea>
                 <?php if ($comment_error): ?>
                     <div style="color:red;"><?php echo htmlspecialchars($comment_error); ?></div>
                 <?php endif; ?>
-                <button type="submit" name="comment_submit" style="margin-top:0.5em;">Post Comment</button>
+                <div class="actions">
+                <button type="submit" name="comment_submit">Post Comment</button>
+                </div>
             </form>
         <?php else: ?>
-            <p><a href="login.php">Log in</a> to post a comment.</p>
+    <p>
+        <a href="login.php" style="display:inline; color: #333; text-decoration:underline;">Login</a> to post a comment.
+    </p>
         <?php endif; ?>
 
         <?php if (count($comments) > 0): ?>
@@ -246,11 +256,12 @@ $conn->close();
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>
-            <p>No comments yet. Be the first to comment!</p>
+            <p style="font-weight:bold; color:#797979;">No comments yet. Be the first to comment!</p>
         <?php endif; ?>
     </div>
-    <?php endif; ?>
+
 </section>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var openBtn = document.getElementById('openGuideModal');
