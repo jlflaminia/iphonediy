@@ -109,7 +109,7 @@ if ($guide_id) {
 
 <section class="about">
     <div class="user-section">
-        <a href="ip16.php" style="text-decoration:underline;color:#333;">&larr; Back to All Guides</a>
+        <a href="ip16.php" style="margin-bottom:15px;color:#333;">&larr; Back to All Guides</a>
         <?php if ($guide): ?>
             <h2><?php echo htmlspecialchars($guide['title']); ?></h2>
             <p><strong>Type:</strong> <?php echo htmlspecialchars($guide['guide_type']); ?></p>
@@ -134,7 +134,7 @@ if ($guide_id) {
                         echo "<img src='$imgPath' alt='Step Image' class='step-image'><br>";
                     }
                     if (!empty($wisdom[$i])) {
-                        echo "Description:" . htmlspecialchars($wisdom[$i]) . "<br>";
+                        echo "Description: " . htmlspecialchars($wisdom[$i]) . "<br>";
                     }
                     echo "</div>";
                 }

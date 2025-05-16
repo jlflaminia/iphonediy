@@ -68,7 +68,9 @@ while ($row = $result_all->fetch_assoc()) {
         </div>
       </div>
     </nav>
-
+      <div>
+        <a href="index.php#categories" style="color:#333;margin-left:10rem">&larr; Back to Categories</a>
+      </div>
     <section id="categories">
     <div class="container">
         <div class="product-image">
@@ -82,32 +84,20 @@ while ($row = $result_all->fetch_assoc()) {
             </div>
         </div>
     </div>
-
+      
       <div class="main-details-container">
       <div class="about-containers ip-cat-grid">
-        <a href="battery.php" class="details-container color-container cat">
+        <a href="iphone16/battery.php" class="details-container color-container cat">
           <img src="./ip/battery.png" alt="Category 1" class="project-img"/>
           <p class="section__text__p1">Battery</p>
         </a>
-        <a href="screen.php" class="details-container color-container cat">
+        <a href="iphone16/screen.php" class="details-container color-container cat">
           <img src="./ip/screen.png" alt="Category 2" class="project-img"/>
           <p class="section__text__p1">Screen</p>
         </a>
-        <a href="microphone.php" class="details-container color-container cat">
-          <img src="./ip/microphone.png" alt="Category 3" class="project-img"/>
-          <p class="section__text__p1">Microphone</p>
-        </a>
-        <a href="speaker.php" class="details-container color-container cat">
-          <img src="./ip/speaker.png" alt="Category 4" class="project-img"/>
-          <p class="section__text__p1">Speaker</p>
-        </a>
-        <a href="camera.php" class="details-container color-container cat">
+        <a href="iphone16/camera.php" class="details-container color-container cat">
           <img src="./ip/camera.png" alt="Category 5" class="project-img"/>
           <p class="section__text__p1">Camera</p>
-        </a>
-        <a href="charging-port.php" class="details-container color-container cat">
-          <img src="./ip/chargin-port.png" alt="Category 6" class="project-img"/>
-          <p class="section__text__p1">Charging Port</p>
         </a>
       </div>  
       </div>
@@ -115,8 +105,8 @@ while ($row = $result_all->fetch_assoc()) {
 
 <section class="about">
     <div class="user-section">
-        <h2>All Saved Guides</h2>
-          <p>Select a guide from the list below to view details.</p>
+        <h2>All Saved Guides by Users</h2>
+          <p>Select a guide below to view details.</p>
         <ul>
             <?php foreach ($all_guides as $g): ?>
                 <li>

@@ -9,9 +9,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>iPhone 16</title>
       <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/mediaqueries.css">
-      <link rel="stylesheet" href="css/iphone-style.css">
+      <link rel="stylesheet" href="\iphonediy\css/style.css">
+      <link rel="stylesheet" href="\iphonediy\css/mediaqueries.css">
+      <link rel="stylesheet" href="\iphonediy\css/iphone-style.css">
       <style>
         .tools-scrollbox {
       margin: 2rem auto;
@@ -87,14 +87,14 @@
           </div>
         </div>
       </nav>
-      <section id="categories">
+      <section id="categories">          
+          <!-- <a href="\iphone16\ip16.php" style="color:#333;">&larr; Back to iPhone 16</a>     -->
       <div class="container">
           <div class="product-image">
-              <img src="./ip/battery.png" alt="battery">
+              <img src="\iphonediy\ip/battery.png" alt="battery">
           </div>
           <!-- <h1>iPhone 16 Battery Replacement</h1>
           <p class="date">Last updated on April 23, 2025</p> -->
-
           <div class="product-info">
               <h1>iPhone 16 Battery Replacement</h1>
               <p> <b>Introduction</b></p>
@@ -142,7 +142,7 @@
     <section id="categories">
       <div class="container">
           <div class="product-image">
-              <img src="./ip/battery/1.jpg" alt="steps">
+              <img src="\iphonediy\ip/battery/1.jpg" alt="steps">
           </div>
           <div class="product-info">
               <h1> Step 1 </h1>
@@ -154,7 +154,7 @@
     <section id="categories">
       <div class="container">
           <div class="product-image">
-              <img src="./ip/battery/3.jpg" alt="steps">
+              <img src="\iphonediy\ip/battery/3.jpg" alt="steps">
           </div>
           <div class="product-info">
               <h1>Step 2</h1>
@@ -165,7 +165,7 @@
     </section>
     <section id="categories">
       <div class="container">
-          <div class="product-image"><img src="./ip/battery/4.jpg" alt="steps"></div>
+          <div class="product-image"><img src="\iphonediy\ip/battery/4.jpg" alt="steps"></div>
           <div class="product-info">
               <h1>Step 3</h1>
               <p class="section__text__p2 ">Remove the pentalobe screws</p>
@@ -175,7 +175,7 @@
     </section>
     <section id="categories">
       <div class="container">
-          <div class="product-image"><img src="./ip/battery/5.jpg" alt="steps"></div>
+          <div class="product-image"><img src="\iphonediy\ip/battery/5.jpg" alt="steps"></div>
           <div class="product-info">
               <h1>Step 4</h1>
               <p class="section__text__p2 ">Mark your opening picks</p>
@@ -189,7 +189,7 @@
     </section>
     <section id="categories">
       <div class="container">
-          <div class="product-image"><img src="./ip/battery/6.jpg" alt="steps"></div>
+          <div class="product-image"><img src="\iphonediy\ip/battery/6.jpg" alt="steps"></div>
           <div class="product-info">
               <h1>Step 5</h1>
               <p class="section__text__p2">Secure the screen</p>
@@ -205,7 +205,7 @@
     </section>
     <section id="categories">
       <div class="container">
-          <div class="product-image"><img src="./ip/battery/7.jpg" alt="steps"></div>
+          <div class="product-image"><img src="\iphonediy\ip/battery/7.jpg" alt="steps"></div>
           <div class="product-info">
               <h1>Step 6</h1>
               <p class="section__text__p2">Secure an Anti-Clamp</p>
@@ -221,7 +221,7 @@
     </section>
     <section id="categories">
       <div class="container">
-          <div class="product-image"><img src="./ip/battery/8.jpg" alt="steps"></div>
+          <div class="product-image"><img src="\iphonediy\ip/battery/8.jpg" alt="steps"></div>
           <div class="product-info">
               <h1>Step 7</h1>
               <p class="section__text__p2">Create a gap under the back glass</p>
@@ -234,7 +234,7 @@
     </section>
     <section id="categories">
       <div class="container">
-          <div class="product-image"><img src="./ip/battery/9.jpg" alt="steps"></div>
+          <div class="product-image"><img src="\iphonediy\ip/battery/9.jpg" alt="steps"></div>
           <div class="product-info">
               <h1>Step 8</h1>
               <p class="section__text__p2">Insert an opening pick</p>
@@ -248,7 +248,7 @@
     </section>
     <section id="categories">
       <div class="container">
-          <div class="product-image"><img src="./ip/battery/10.jpg" alt="steps"></div>
+          <div class="product-image"><img src="\iphonediy\ip/battery/10.jpg" alt="steps"></div>
           <div class="product-info">
               <h1>Step 9</h1>
               <p class="section__text__p2">Heat the bottom edge</p>
@@ -258,7 +258,7 @@
     </section>
     <section id="categories">
       <div class="container">
-          <div class="product-image"><img src="./ip/battery/11.jpg" alt="steps"></div>
+          <div class="product-image"><img src="\iphonediy\ip/battery/11.jpg" alt="steps"></div>
           <div class="product-info">
               <h1>Step 10</h1>
               <p class="section__text__p2">Insert an opening pick</p>
