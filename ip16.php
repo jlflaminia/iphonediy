@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -12,21 +11,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch a single guide if guide_id is set
-$guide = null;
-$guide_selected = false;
-if (isset($_GET['guide_id'])) {
-    $guide_id = intval($_GET['guide_id']);
-    $sql = "SELECT * FROM guides WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $guide_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $guide = $result->fetch_assoc();
-    $stmt->close();
-    $guide_selected = true;
-}
-
 // Fetch all guides for the user section
 $all_guides = [];
 $sql_all = "SELECT id, title, device, part, guide_type FROM guides ORDER BY id DESC";
@@ -34,47 +18,6 @@ $result_all = $conn->query($sql_all);
 while ($row = $result_all->fetch_assoc()) {
     $all_guides[] = $row;
 }
-$comment_error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment_submit']) && isset($_SESSION['username']) && isset($_POST['guide_id'])) {
-    $comment_text = trim($_POST['comment_text']);
-    $guide_id = intval($_POST['guide_id']);
-    $username = $_SESSION['username'];
-    if ($comment_text !== '') {
-        $stmt = $conn->prepare("INSERT INTO comments (guide_id, username, comment, created_at) VALUES (?, ?, ?, NOW())");
-        $stmt->bind_param("iss", $guide_id, $username, $comment_text);
-        $stmt->execute();
-        $stmt->close();
-        // Redirect to avoid form resubmission
-        header("Location: ip16.php?guide_id=" . $guide_id);
-        exit();
-    } else {
-        $comment_error = "Comment cannot be empty.";
-    }
-}
-
-$comments = [];
-if ($guide_selected) {
-    // Fetch comments for the selected guide
-    $stmt = $conn->prepare("SELECT username, comment, created_at, guide_id FROM comments WHERE guide_id = ? ORDER BY created_at DESC");
-    $stmt->bind_param("i", $guide_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    while ($row = $result->fetch_assoc()) {
-        $comments[] = $row;
-    }
-    $stmt->close();
-} else {
-    // Fetch all comments, join with guides to get guide title
-    $sql = "SELECT c.username, c.comment, c.created_at, c.guide_id, g.title AS guide_title
-            FROM comments c
-            LEFT JOIN guides g ON c.guide_id = g.id
-            ORDER BY c.created_at DESC";
-    $result = $conn->query($sql);
-    while ($row = $result->fetch_assoc()) {
-        $comments[] = $row;
-    }
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -171,126 +114,19 @@ if ($guide_selected) {
     </section>
 
 <section class="about">
-  <?php if ($guide): ?>
-        <div id="openGuideModal"></div>
-        
-    <div id="guideModal" class="modal">
-      <div class="modal-content">
-        <span class="close-modal" id="closeGuideModal">&times;</span>
-        <h2><?php echo htmlspecialchars($guide['title']); ?></h2>
-        <p><strong>Type:</strong> <?php echo htmlspecialchars($guide['guide_type']); ?></p>
-        <p><strong>Device:</strong> <?php echo htmlspecialchars($guide['device']); ?></p>
-        <p><strong>Part:</strong> <?php echo htmlspecialchars($guide['part']); ?></p>
-        <p><strong>Introduction:</strong> <?php echo nl2br(htmlspecialchars($guide['introduction'])); ?></p>
-        <p><strong>Difficulty:</strong> <?php echo htmlspecialchars($guide['difficulty_estimate']); ?></p>
-        <p><strong>Tools:</strong> <?php echo htmlspecialchars($guide['tools']); ?></p>
-        <p><strong>Conclusion:</strong> <?php echo nl2br(htmlspecialchars($guide['conclusion'])); ?></p>
-        <h3>Steps</h3>
-        <?php
-        $steps = json_decode($guide['steps'], true);
-        $wisdom = json_decode($guide['wisdom'], true);
-        $step_images = isset($guide['step_images']) ? json_decode($guide['step_images'], true) : [];
-        if ($steps && count($steps) > 0) {
-            foreach ($steps as $i => $step) {
-                echo "<div class='step-block'>";
-                echo "<span class='step-title'>Step " . ($i+1) . ":</span> " . htmlspecialchars($step) . "<br>";
-                // Show step image if exists
-                if (!empty($step_images[$i])) {
-                    $imgPath = htmlspecialchars($step_images[$i]);
-                    echo "<img src='$imgPath' alt='Step Image' class='step-image'><br>";
-                }
-                if (!empty($wisdom[$i])) {
-                    echo "<em>Wisdom:</em> " . htmlspecialchars($wisdom[$i]) . "<br>";
-                }
-                echo "</div>";
-            }
-        } else {
-            echo "<p>No steps found.</p>";
-        }
-        ?>
-      </div>
-    </div>
-  <?php endif; ?>
-
     <div class="user-section">
         <h2>All Saved Guides</h2>
           <p>Select a guide from the list below to view details.</p>
         <ul>
             <?php foreach ($all_guides as $g): ?>
                 <li>
-                    <a href="ip16.php?guide_id=<?php echo $g['id']; ?>">
+                    <a href="guide-view.php?guide_id=<?php echo $g['id']; ?>">
                         <?php echo htmlspecialchars($g['title']); ?> (<?php echo htmlspecialchars($g['device']); ?> - <?php echo htmlspecialchars($g['part']); ?>)
                     </a>
                 </li>
             <?php endforeach; ?>
         </ul>
     </div>    
-    
-    <div class="user-section">
-        <h3>Comments</h3>
-        <?php if (isset($_SESSION['username'])): ?>
-            <form method="post" style="margin-bottom:1em;">
-                <input type="hidden" name="guide_id" value="<?php echo htmlspecialchars($guide_id); ?>">
-                <textarea name="comment_text" rows="5" style="width:96%;padding:0.5em; border-radius:18px; margin-top: 15px;" placeholder="Write your comment here..."></textarea>
-                <?php if ($comment_error): ?>
-                    <div style="color:red;"><?php echo htmlspecialchars($comment_error); ?></div>
-                <?php endif; ?>
-                <div class="actions">
-                <button type="submit" name="comment_submit">Post Comment</button>
-                </div>
-            </form>
-        <?php else: ?>
-    <p>
-        <a href="login.php" style="display:inline; color: #333; text-decoration:underline;">Login</a> to post a comment.
-    </p>
-        <?php endif; ?>
-
-        <?php if (count($comments) > 0): ?>
-            <ul style="list-style:none;padding:0;">
-                <?php foreach ($comments as $c): ?>
-                    <li style="margin-bottom:1em;padding-bottom:0.5em;border-bottom:1px solid #eee;">
-                        <strong><?php echo htmlspecialchars($c['username']); ?></strong>
-                        <span style="color:#888;font-size:0.9em;">on <?php echo htmlspecialchars($c['created_at']); ?></span>
-                        <div style="margin-top:0.3em;"><?php echo nl2br(htmlspecialchars($c['comment'])); ?></div>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        <?php else: ?>
-            <p style="font-weight:bold; color:#797979;">No comments yet. Be the first to comment!</p>
-        <?php endif; ?>
-    </div>
-
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var openBtn = document.getElementById('openGuideModal');
-    var modal = document.getElementById('guideModal');
-    var closeBtn = document.getElementById('closeGuideModal');
-    // If a guide is selected, open the modal automatically
-    <?php if ($guide_selected): ?>
-        if(modal) {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
-    <?php endif; ?>
-    if(openBtn && modal && closeBtn) {
-        openBtn.onclick = function() {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-            document.body.style.overflow = "";
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = "";
-            }
-        }
-    }
-});
-</script>
 </body>
 </html>
