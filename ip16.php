@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 
 // Fetch all guides for the user section
 $all_guides = [];
-$sql_all = "SELECT id, title, device, part, guide_type FROM guides ORDER BY id DESC";
+$sql_all = "SELECT id, title, device, part, guide_type, created_at FROM guides ORDER BY id DESC";
 $result_all = $conn->query($sql_all);
 while ($row = $result_all->fetch_assoc()) {
     $all_guides[] = $row;
@@ -110,9 +110,14 @@ while ($row = $result_all->fetch_assoc()) {
         <ul>
             <?php foreach ($all_guides as $g): ?>
                 <li>
-                    <a href="guide-view.php?guide_id=<?php echo $g['id']; ?>">
-                        <?php echo htmlspecialchars($g['title']); ?> (<?php echo htmlspecialchars($g['device']); ?> - <?php echo htmlspecialchars($g['part']); ?>)
-                    </a>
+                  <a href="ip16.php?guide_id=<?php echo $g['id']; ?>">
+                      <?php echo htmlspecialchars($g['title']); ?> (<?php echo htmlspecialchars($g['device']); ?> - <?php echo htmlspecialchars($g['part']); ?>)
+                      <?php if (isset($g['created_at'])): ?>
+                          <span style="color: #888; font-size: 0.9em;">
+                              <?php echo date('Y-m-d H:i', strtotime($g['created_at'])); ?>
+                          </span>
+                      <?php endif; ?>
+                  </a>                
                 </li>
             <?php endforeach; ?>
         </ul>

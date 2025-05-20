@@ -26,6 +26,8 @@ if (isset($_GET['guide_id'])) {
     $stmt->close();
 }
 
+
+
 // Handle comment submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment_submit']) && isset($_SESSION['username']) && isset($_POST['guide_id'])) {
     $comment_text = trim($_POST['comment_text']);
@@ -109,9 +111,11 @@ if ($guide_id) {
 
 <section class="about">
     <div class="user-section">
+        
         <a href="ip16.php" style="margin-bottom:15px;color:#333;">&larr; Back to All Guides</a>
         <?php if ($guide): ?>
             <h2><?php echo htmlspecialchars($guide['title']); ?></h2>
+            <p><strong>Created by:</strong> <?php echo htmlspecialchars($guide['created_by']); ?></p>
             <p><strong>Type:</strong> <?php echo htmlspecialchars($guide['guide_type']); ?></p>
             <p><strong>Device:</strong> <?php echo htmlspecialchars($guide['device']); ?></p>
             <p><strong>Part:</strong> <?php echo htmlspecialchars($guide['part']); ?></p>

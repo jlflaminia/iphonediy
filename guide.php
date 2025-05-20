@@ -1,9 +1,19 @@
+
 <?php
+
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
+    exit();
+}
+
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
 $pass = '';
 $submitted = false;
+$created_by = $_SESSION['username'];
+$display_username = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -59,15 +69,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $wisdomJson = json_encode($wisdom);
     $stepImagesJson = json_encode($stepImages);
 
-    // Prepare an SQL statement (add step_images column)
-    $stmt = $conn->prepare("INSERT INTO guides (guide_type, device, part, title, introduction, difficulty_estimate, tools, conclusion, steps, step_type, wisdom, step_images) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssssss", $guideType, $device, $part, $title, $introduction, $difficultyEstimate, $tools, $conclusion, $stepsJson, $stepTypeJson, $wisdomJson, $stepImagesJson);
+    // Prepare an SQL statement (add created_by column)
+    $stmt = $conn->prepare("INSERT INTO guides (guide_type, device, part, title, introduction, difficulty_estimate, tools, conclusion, steps, step_type, wisdom, step_images, created_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssssss", $guideType, $device, $part, $title, $introduction, $difficultyEstimate, $tools, $conclusion, $stepsJson, $stepTypeJson, $wisdomJson, $stepImagesJson, $created_by);
 
     // Execute the statement
     if ($stmt->execute()) {
         $last_id = $conn->insert_id;
-        header("Location: ip16.php?guide_id=" . $last_id);
-        exit();
+        $submitted = true;
+        $display_username = $created_by;
+        // Optionally, redirect to a guide view page:
+        // header("Location: ip16.php?guide_id=" . $last_id);
+        // exit();
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -88,7 +101,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/guide.css">
 </head>
 
-<body>
+<body>        
+    
+<div class="guide-container">
+        <?php if ($submitted): ?>
+            <div class="success-message">
+                <h2>Guide Created Successfully!</h2>
+                <p><strong>Created by:</strong> <?php echo htmlspecialchars($display_username); ?></p>
+                <!-- Optionally, link to the guide view page -->
+                <a href="ip16.php?guide_id=<?php echo $last_id; ?>" style="color:#333;">View Guide</a>
+            </div>
+        <?php else: ?>
+</div>
     <div class="guide-container">
         <h1 class="title">Create a Guide</h1>
         <form method="POST" enctype="multipart/form-data">
@@ -153,6 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="save-button">Save Guide</button>
         </div>
         </form>
+        <?php endif; ?>
     </div>
 
 <script>

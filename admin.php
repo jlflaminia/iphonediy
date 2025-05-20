@@ -1,10 +1,7 @@
+
+
 <?php
 session_start();
-
-// $host = 'hapart.ctsqsqyign71.ap-southeast-1.rds.amazonaws.com';
-// $db = 'masterdiy';
-// $user = 'admin';
-// $pass = 'jljeongyeon1';
 
 $host = 'localhost';
 $db = 'masterdiy';
@@ -23,24 +20,41 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['usertype']) || $_SESSION[
     exit();
 }
 
-// Fetch all users
-$query = "SELECT id, username, usertype FROM users";
-$result = $conn->query($query);
-?>
+// Handle approve or delete actions
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['approve_id'])) {
+        $approve_id = intval($_POST['approve_id']);
+        $stmt = $conn->prepare("UPDATE guides SET approval_status = 'approved' WHERE id = ?");
+        $stmt->bind_param("i", $approve_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+    if (isset($_POST['delete_id'])) {
+        $delete_id = intval($_POST['delete_id']);
+        $stmt = $conn->prepare("DELETE FROM guides WHERE id = ?");
+        $stmt->bind_param("i", $delete_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+}
 
+// Fetch all guides with approval status
+$query = "SELECT id, title, device, part, created_by, created_at, approval_status FROM guides ORDER BY created_at DESC";
+$result = $conn->query($query);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard - iPhone DIY</title>
+    <title>Admin Guide Approval - iPhone DIY</title>
     <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mediaqueries.css" />
-    <!-- <link rel="stylesheet" href="admin-dash.css"> -->
     <style>
         table {
             border-collapse: collapse;
-            width: 80%;
+            width: 90%;
             margin: 20px auto;
         }
         th, td {
@@ -51,12 +65,34 @@ $result = $conn->query($query);
         th {
             background: #f2f2f2;
         }
-        .admin-badge {
+        .pending-badge {
             color: #fff;
-            background: grey;
+            background: orange;
             padding: 2px 8px;
             border-radius: 4px;
             font-size: 0.9em;
+        }
+        .approved-badge {
+            color: #fff;
+            background: green;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .action-btn {
+            margin-right: 8px;
+            padding: 4px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .approve-btn {
+            background: #4CAF50;
+            color: #fff;
+        }
+        .delete-btn {
+            background: #f44336;
+            color: #fff;
         }
     </style>
 </head>
@@ -65,66 +101,64 @@ $result = $conn->query($query);
         <div class="logo">iPhone DIY Admin</div>
         <div>
             <ul class="nav-links">
-                <li><a href="index.php">Main Site</a></li>
+                <li><a href="admin.php">Admin Dashboard</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>
-
-    <nav id="hamburger-nav">
-      <div class="logo">iPhone DIY Admin</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="index.php" onclick="toggleMenu()">Main Site</a></li>
-          <li><a href="logout.php" onclick="toggleMenu()">Lagout</a></li>
-        </div>
-      </div>
-    </nav>
-
-    <section id="admin-dashboard">
-        <h1 class="title">Dashboard</h1>
-        <p class="section__text__p1">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
-        <div class="admin-actions">
-            <ul>
-                <li><a href="#">Manage Users</a></li>
-                <br/>
-                <li><a href="#">Site Settings</a></li>
-            </ul>
-            <br/>
-        </div>
-        <hr>
-        <br/>
-        <h2>Registered Users</h2>
+    <section id="admin-guides">
+        <h1 class="title">Guide Approval & Management</h1>
         <table>
             <tr>
                 <th>ID</th>
-                <th>Username</th>
-                <th>Role</th>
+                <th>Title</th>
+                <th>Device</th>
+                <th>Part</th>
+                <th>Created By</th>
+                <th>Created At</th>
+                <th>Status</th>
+                <th>Actions</th>
             </tr>
             <?php if ($result && $result->num_rows > 0): ?>
                 <?php while($row = $result->fetch_assoc()): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($row['id']); ?></td>
-                        <td><?php echo htmlspecialchars($row['username']); ?></td>
+                        <td><?php echo htmlspecialchars($row['title']); ?></td>
+                        <td><?php echo htmlspecialchars($row['device']); ?></td>
+                        <td><?php echo htmlspecialchars($row['part']); ?></td>
+                        <td><?php echo htmlspecialchars($row['created_by']); ?></td>
+                        <td><?php echo htmlspecialchars($row['created_at']); ?></td>
                         <td>
-                            <?php echo ($row['usertype'] === 'admin') ? '<span class="admin-badge">Admin</span>' : 'User'; ?>
+                            <?php
+                                if ($row['approval_status'] === 'approved') {
+                                    echo '<span class="approved-badge">Approved</span>';
+                                } else {
+                                    echo '<span class="pending-badge">Pending</span>';
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <?php if ($row['approval_status'] !== 'approved'): ?>
+                                <form method="post" style="display:inline;">
+                                    <input type="hidden" name="approve_id" value="<?php echo $row['id']; ?>">
+                                    <button type="submit" class="action-btn approve-btn">Approve</button>
+                                </form>
+                            <?php endif; ?>
+                            <form method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this guide?');">
+                                <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                                <button type="submit" class="action-btn delete-btn">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>
-                <tr><td colspan="3">No users found.</td></tr>
+                <tr><td colspan="8">No guides found.</td></tr>
             <?php endif; ?>
         </table>
     </section>
     <footer>
         <p>Copyright &#169; 2025 Master DIY. All Rights Reserved.</p>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
 <?php
