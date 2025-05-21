@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Get form data
     $guideType = htmlspecialchars($_POST['guide-type']);
-    $device = htmlspecialchars($_POST['device']);
+    $device = "iPhone 16"; // Device is fixed
     $part = htmlspecialchars($_POST['part']);
     $title = htmlspecialchars($_POST['title']);
     $introduction = htmlspecialchars($_POST['introduction']);
@@ -103,15 +103,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>        
     
-<div class="guide-container">
-        <?php if ($submitted): ?>
-            <div class="success-message">
-                <h2>Guide Created Successfully!</h2>
-                <p><strong>Created by:</strong> <?php echo htmlspecialchars($display_username); ?></p>
-                <!-- Optionally, link to the guide view page -->
-                <a href="ip16.php?guide_id=<?php echo $last_id; ?>" style="color:#333;">View Guide</a>
-            </div>
-        <?php else: ?>
+<div class="guide-container">  
+<?php if ($submitted): ?>
+    <div class="success-message" style="text-align: center;">
+        <h2 style="color: #222; font-size: 1.6rem; margin-bottom: 10px;">Guide Submitted for Review</h2>
+        <p style="color: #444; font-size: 1rem; margin-bottom: 18px;">
+            Thank you, <strong><?php echo htmlspecialchars($display_username); ?></strong>.<br>
+            Your guide has been received and is now pending admin approval.<br>
+            You will see your guide listed once it has been reviewed and approved.
+        </p>
+        <a href="ip16.php" style="color: #333;">Back to Guides</a>
+    </div>
+<?php else: ?>
 </div>
     <div class="guide-container">
         <h1 class="title">Create a Guide</h1>
@@ -122,7 +125,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="guide-type" name="guide-type" placeholder="Replacement" required>
 
             <label for="device">Device</label>
-            <input type="text" id="device" name="device" placeholder="Device name/model" required>
+            <div style="margin-bottom:10px;font-weight:600;">iPhone 16</div>
+            <input type="hidden" id="device" name="device" value="iPhone 16">
 
             <label for="part">What part are you replacing?</label>
             <input type="text" id="part" name="part" placeholder="battery" required>
@@ -151,10 +155,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Guide Steps</h2>
             <div id="steps-section">
                 <div class="step-block">
-                    <label>Step Title</label>
-                    <input type="text" name="step-title[]" placeholder="Title">
 
-                    <label>Step</label>
+                    <label>Step Title</label>
                     <input type="text" name="steps[]" placeholder="Step 1">
 
                     <label>Add Image</label>
@@ -166,8 +168,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
 
-                    <label>Insert wisdom here:</label>
-                    <textarea name="wisdom[]" placeholder="Insert wisdom here..."></textarea>
+                    <label>Description:</label>
+                    <textarea name="wisdom[]" placeholder="Insert description here..."></textarea>
                 </div>
             </div>
             <button type="button" class="add-step" onclick="addStep()">Add Step</button>
@@ -188,10 +190,8 @@ function addStep() {
     const stepBlock = document.createElement('div');
     stepBlock.className = 'step-block';
     stepBlock.innerHTML = `
-        <label>Step Title</label>
-        <input type="text" name="step-title[]" placeholder="Step Title">
 
-        <label>Step</label>
+        <label>Step Title</label>
         <input type="text" name="steps[]" placeholder="Step ${stepCount}">
 
         <label>Add Image</label>
@@ -203,8 +203,8 @@ function addStep() {
             </div>
         </div>
 
-        <label>Insert wisdom here:</label>
-        <textarea name="wisdom[]" placeholder="Insert wisdom here..."></textarea>
+        <label>Description:</label>
+        <textarea name="wisdom[]" placeholder="Insert description here..."></textarea>
     `;
     stepsSection.appendChild(stepBlock);
 }

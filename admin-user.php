@@ -19,29 +19,44 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['usertype']) || $_SESSION[
     exit();
 }
 
-// Handle delete action only
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['delete_id'])) {
-        $delete_id = intval($_POST['delete_id']);
-        $stmt = $conn->prepare("DELETE FROM guides WHERE id = ?");
-        $stmt->bind_param("i", $delete_id);
+// Handle usertype change
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['toggle_usertype'], $_POST['user_id'])) {
+    $user_id = intval($_POST['user_id']);
+    // Prevent admin from changing their own role
+    if ($user_id != $_SESSION['user_id']) {
+        // Get current usertype
+        $stmt = $conn->prepare("SELECT usertype FROM users WHERE id = ?");
+        $stmt->bind_param("i", $user_id);
         $stmt->execute();
-        $stmt->close();
+        $stmt->bind_result($current_type);
+        if ($stmt->fetch()) {
+            $new_type = ($current_type === 'admin') ? 'user' : 'admin';
+            $stmt->close();
+
+            $update = $conn->prepare("UPDATE users SET usertype = ? WHERE id = ?");
+            $update->bind_param("si", $new_type, $user_id);
+            $update->execute();
+            $update->close();
+        } else {
+            $stmt->close();
+        }
     }
+    // Redirect to avoid form resubmission
+    header("Location: admin-user.php");
+    exit();
 }
 
-// Fetch all submitted guides (pending, approved, declined)
-$query = "SELECT id, title, device, part, created_by, created_at, approval_status FROM guides ORDER BY created_at DESC";
+// Fetch all users
+$query = "SELECT id, username, usertype FROM users";
 $result = $conn->query($query);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - iPhone DIY</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mediaqueries.css" />
     <style>
@@ -50,20 +65,8 @@ $result = $conn->query($query);
             margin: 0;
             padding: 0;
         }
-        .badge-approved {
-            background: #27ae60;
-            color: #fff;
-        }
-        .badge-declined {
-            background: #e74c3c;
-            color: #fff;
-        }
-        .badge-pending {
-            background: #333;
-            color: #fff;
-        }
         .admin-container {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 40px auto 0 auto;
             background: #fff;
             border-radius: 12px;
@@ -71,11 +74,12 @@ $result = $conn->query($query);
             padding: 36px 40px 32px 40px;
         }
         .admin-title {
-            font-size: 2.1rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 18px;
             color: #222;
             letter-spacing: 1px;
+            text-align: center;
         }
         .admin-actions {
             margin-bottom: 18px;
@@ -91,12 +95,14 @@ $result = $conn->query($query);
             display: inline-block;
         }
         .admin-actions a {
+            color: #2980b9;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.08rem;
             transition: color 0.2s;
         }
         .admin-actions a:hover {
+            color: #1a5a8a;
             text-decoration: underline;
         }
         .admin-table {
@@ -129,6 +135,14 @@ $result = $conn->query($query);
             font-weight: 600;
             letter-spacing: 0.5px;
         }
+        .badge-admin {
+            background: #2980b9;
+            color: #fff;
+        }
+        .badge-user {
+            background: #888;
+            color: #fff;
+        }
         .actions-cell {
             display: flex;
             gap: 10px;
@@ -144,14 +158,19 @@ $result = $conn->query($query);
             cursor: pointer;
             transition: background 0.2s, color 0.2s;
         }
-        .delete-btn {
-            background: #333;
+        .toggle-btn {
+            background: #27ae60;
             color: #fff;
         }
-        .delete-btn:hover {
-            background: #555;
+        .toggle-btn:hover {
+            background: #219150;
         }
-        .no-guides {
+        .toggle-btn[disabled] {
+            background: #ccc;
+            color: #fff;
+            cursor: not-allowed;
+        }
+        .no-users {
             color: #888;
             font-size: 1.1rem;
             margin-top: 24px;
@@ -176,14 +195,27 @@ $result = $conn->query($query);
         nav#desktop-nav, nav#hamburger-nav {
             background: #222;
             color: #fff;
+            padding: 0.7rem 0;
+        }
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-left: 2rem;
+        }
+        nav .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin-right: 2rem;
         }
         nav .nav-links li a {
             color: #fff;
+            text-decoration: none;
+            font-weight: 500;
             transition: color 0.2s;
         }
         nav .nav-links li a:hover {
-            color: #ddd;            
-            text-decoration: underline;
+            color: #f1c40f;
         }
         footer {
             text-align: center;
@@ -192,6 +224,17 @@ $result = $conn->query($query);
             margin-top: 40px;
             padding: 18px 0 10px 0;
             background: #f5f6fa;
+        }
+        .back-link {
+            color: #2980b9;
+            margin-left: 0;
+            text-decoration: underline;
+            font-size: 1.05rem;
+            display: inline-block;
+            margin-bottom: 18px;
+        }
+        .back-link:hover {
+            color: #1a5a8a;
         }
     </style>
 </head>
@@ -205,7 +248,7 @@ $result = $conn->query($query);
             </ul>
         </div>
     </nav>
-    <nav id="hamburger-nav">
+    <nav id="hamburger-nav" style="display:none;">
         <div class="logo">iPhone DIY Admin</div>
         <div class="hamburger-menu">
             <div class="hamburger-icon" onclick="toggleMenu()">
@@ -220,64 +263,59 @@ $result = $conn->query($query);
         </div>
     </nav>
     <div class="admin-container">
-        <div class="title">Dashboard</div>
-        <p class="section__text__p1">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
-        <br/>
+        <a href="admin.php" class="back-link">&larr; Back to Guide Management</a>
+        <div class="admin-title">User Management</div>
         <div class="admin-actions">
             <ul>
                 <li><a href="admin-user.php">Manage Users</a></li>
-                <li><a href="admin_approve_guides.php">Pending Guides for Approval</a></li>
-                <li><a href="admin_approved_list.php">Approved Guides</a></li>
+                <li><a href="admin_approve_guides.php">Approve Guides</a></li>
             </ul>
         </div>
-        <hr>
-        <br/>
-        <p class="section__text__p2">Submitted Guides</p>
-        <?php if ($result->num_rows > 0): ?>
         <table class="admin-table">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Title</th>
-                    <th>Device</th>
-                    <th>Part</th>
-                    <th>Created By</th>
-                    <th>Created At</th>
-                    <th>Status</th>
-                    <th style="text-align:center;">Actions</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th style="text-align:center;">Action</th>
                 </tr>
             </thead>
             <tbody>
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <tr>
-                    <td><?= htmlspecialchars($row['id']) ?></td>
-                    <td><?= htmlspecialchars($row['title']) ?></td>
-                    <td><?= htmlspecialchars($row['device']) ?></td>
-                    <td><?= htmlspecialchars($row['part']) ?></td>
-                    <td><?= htmlspecialchars($row['created_by']) ?></td>
-                    <td><?= htmlspecialchars($row['created_at']) ?></td>
-                    <td>
-                        <?php if ($row['approval_status'] === 'approved'): ?>
-                            <span class="badge badge-approved">Approved</span>
-                        <?php elseif ($row['approval_status'] === 'pending'): ?>
-                            <span class="badge badge-pending">Pending</span>
-                        <?php elseif ($row['approval_status'] === 'declined'): ?>
-                            <span class="badge badge-declined">Declined</span>
-                        <?php endif; ?>
-                    </td>
-                    <td class="actions-cell">
-                        <form method="post" style="display:inline;">
-                            <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
-                            <button type="submit" class="action-btn delete-btn" onclick="return confirm('Delete this guide?')">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
+            <?php if ($result && $result->num_rows > 0): ?>
+                <?php while($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($row['id']); ?></td>
+                        <td><?php echo htmlspecialchars($row['username']); ?></td>
+                        <td>
+                            <?php if ($row['usertype'] === 'admin'): ?>
+                                <span class="badge badge-admin">Admin</span>
+                            <?php else: ?>
+                                <span class="badge badge-user">User</span>
+                            <?php endif; ?>
+                        </td>
+                        <td class="actions-cell">
+                            <?php
+                            $current_user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+                            if ($current_user_id === null || $row['id'] != $current_user_id):
+                            ?>
+                                <form method="post" style="display:inline;">
+                                    <input type="hidden" name="user_id" value="<?php echo $row['id']; ?>">
+                                    <input type="hidden" name="toggle_usertype" value="1">
+                                    <button type="submit" class="action-btn toggle-btn">
+                                        Make <?php echo ($row['usertype'] === 'admin') ? 'User' : 'Admin'; ?>
+                                    </button>
+                                </form>
+                            <?php else: ?>
+                                <button class="action-btn toggle-btn" disabled>Yourself</button>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr><td colspan="4" class="no-users">No users found.</td></tr>
+            <?php endif; ?>
             </tbody>
         </table>
-        <?php else: ?>
-            <div class="no-guides">There are no submitted guides.</div>
-        <?php endif; ?>
     </div>
     <footer>
         <p>&copy; <?= date('Y') ?> Master DIY. All Rights Reserved.</p>

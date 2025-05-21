@@ -11,13 +11,25 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch all guides for the user section
 $all_guides = [];
-$sql_all = "SELECT id, title, device, part, guide_type, created_at FROM guides ORDER BY id DESC";
-$result_all = $conn->query($sql_all);
-while ($row = $result_all->fetch_assoc()) {
-    $all_guides[] = $row;
+$guides_stmt = $conn->prepare("SELECT id, title, device, part, created_at FROM guides WHERE approved = 1 AND device = 'iPhone 16' ORDER BY created_at DESC");
+if ($guides_stmt) {
+    $guides_stmt->execute();
+    $result = $guides_stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $all_guides[] = $row;
+    }
+    $guides_stmt->close();
 }
+
+$guide_id = isset($_GET['guide_id']) ? intval($_GET['guide_id']) : 0;
+$stmt = $conn->prepare("SELECT * FROM guides WHERE id = ? AND approved = 1");
+$stmt->bind_param("i", $guide_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$stmt->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +122,7 @@ while ($row = $result_all->fetch_assoc()) {
         <ul>
             <?php foreach ($all_guides as $g): ?>
                 <li>
-                  <a href="ip16.php?guide_id=<?php echo $g['id']; ?>">
+                  <a href="guide-view.php?guide_id=<?php echo $g['id']; ?>">
                       <?php echo htmlspecialchars($g['title']); ?> (<?php echo htmlspecialchars($g['device']); ?> - <?php echo htmlspecialchars($g['part']); ?>)
                       <?php if (isset($g['created_at'])): ?>
                           <span style="color: #888; font-size: 0.9em;">

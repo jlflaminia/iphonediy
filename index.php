@@ -9,7 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iPhone DIY</title>
-    <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mediaqueries.css" />
   </head>
@@ -63,7 +63,7 @@ session_start();
 
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/ip-logo.png" alt="Master DIY logo" />
+        <img src="./assets/iphone-x.png" alt="Master DIY logo" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Welcome to</p>
