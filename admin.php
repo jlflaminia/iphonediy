@@ -5,7 +5,7 @@ session_start();
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = '';
+$pass = 'root';
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -44,156 +44,7 @@ $result = $conn->query($query);
     <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mediaqueries.css" />
-    <style>
-        body {
-            background: #f6f8fa;
-            margin: 0;
-            padding: 0;
-        }
-        .badge-approved {
-            background: #27ae60;
-            color: #fff;
-        }
-        .badge-declined {
-            background: #e74c3c;
-            color: #fff;
-        }
-        .badge-pending {
-            background: #333;
-            color: #fff;
-        }
-        .admin-container {
-            max-width: 1100px;
-            margin: 40px auto 0 auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            padding: 36px 40px 32px 40px;
-        }
-        .admin-title {
-            font-size: 2.1rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: #222;
-            letter-spacing: 1px;
-        }
-        .admin-actions {
-            margin-bottom: 18px;
-        }
-        .admin-actions ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 24px;
-        }
-        .admin-actions li {
-            display: inline-block;
-        }
-        .admin-actions a {
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.08rem;
-            transition: color 0.2s;
-        }
-        .admin-actions a:hover {
-            text-decoration: underline;
-        }
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 18px;
-            background: #fff;
-        }
-        .admin-table th, .admin-table td {
-            padding: 13px 12px;
-            text-align: left;
-        }
-        .admin-table th {
-            background: #f5f6fa;
-            color: #333;
-            font-weight: 600;
-            border-bottom: 2px solid #e0e0e0;
-        }
-        .admin-table tr {
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .admin-table tr:last-child {
-            border-bottom: none;
-        }
-        .badge {
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 12px;
-            font-size: 0.97em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        .actions-cell {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-        }
-        .action-btn {
-            padding: 7px 18px;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
-        }
-        .delete-btn {
-            background: #333;
-            color: #fff;
-        }
-        .delete-btn:hover {
-            background: #555;
-        }
-        .no-guides {
-            color: #888;
-            font-size: 1.1rem;
-            margin-top: 24px;
-            text-align: center;
-        }
-        @media (max-width: 800px) {
-            .admin-container {
-                padding: 18px 4px;
-            }
-            .admin-title {
-                font-size: 1.3rem;
-            }
-            .admin-table th, .admin-table td {
-                padding: 8px 4px;
-                font-size: 0.97rem;
-            }
-            .admin-actions ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-        nav#desktop-nav, nav#hamburger-nav {
-            background: #222;
-            color: #fff;
-        }
-        nav .nav-links li a {
-            color: #fff;
-            transition: color 0.2s;
-        }
-        nav .nav-links li a:hover {
-            color: #ddd;            
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            color: #888;
-            font-size: 1rem;
-            margin-top: 40px;
-            padding: 18px 0 10px 0;
-            background: #f5f6fa;
-        }
-    </style>
+    <link rel="stylesheet" href="css/admin-dash.css" />
 </head>
 <body>
     <nav id="desktop-nav">
@@ -214,8 +65,8 @@ $result = $conn->query($query);
                 <span></span>
             </div>
             <div class="menu-links">
-                <li><a href="index.php" onclick="toggleMenu()">Main Site</a></li>
-                <li><a href="logout.php" onclick="toggleMenu()">Logout</a></li>
+                    <li><a href="index.php" onclick="toggleMenu()">Main Site</a></li>
+                    <li><a href="logout.php" onclick="toggleMenu()">Logout</a></li>            
             </div>
         </div>
     </nav>
@@ -224,10 +75,11 @@ $result = $conn->query($query);
         <p class="section__text__p1">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
         <br/>
         <div class="admin-actions">
-            <ul>
-                <li><a href="admin-user.php">Manage Users</a></li>
-                <li><a href="admin_approve_guides.php">Pending Guides for Approval</a></li>
-                <li><a href="admin_approved_list.php">Approved Guides</a></li>
+            <ul class="admin-actions-list">
+                <li><a class="admin-action-link" href="admin.php" style="background:#f5f6fa ;color:#333;">Submitted Guides</a></li>
+                <li><a class="admin-action-link" href="admin-user.php">Manage Users</a></li>
+                <li><a class="admin-action-link" href="admin_approved_list.php">Approved Guides</a></li>
+                <li><a class="admin-action-link" href="admin_approve_guides.php">Pending Guides</a></li>
             </ul>
         </div>
         <hr>
@@ -243,7 +95,6 @@ $result = $conn->query($query);
                     <th>Part</th>
                     <th>Created By</th>
                     <th>Created At</th>
-                    <th>Status</th>
                     <th style="text-align:center;">Actions</th>
                 </tr>
             </thead>
@@ -256,15 +107,6 @@ $result = $conn->query($query);
                     <td><?= htmlspecialchars($row['part']) ?></td>
                     <td><?= htmlspecialchars($row['created_by']) ?></td>
                     <td><?= htmlspecialchars($row['created_at']) ?></td>
-                    <td>
-                        <?php if ($row['approval_status'] === 'approved'): ?>
-                            <span class="badge badge-approved">Approved</span>
-                        <?php elseif ($row['approval_status'] === 'pending'): ?>
-                            <span class="badge badge-pending">Pending</span>
-                        <?php elseif ($row['approval_status'] === 'declined'): ?>
-                            <span class="badge badge-declined">Declined</span>
-                        <?php endif; ?>
-                    </td>
                     <td class="actions-cell">
                         <form method="post" style="display:inline;">
                             <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
@@ -282,15 +124,8 @@ $result = $conn->query($query);
     <footer>
         <p>&copy; <?= date('Y') ?> Master DIY. All Rights Reserved.</p>
     </footer>
-    <script>
-        // Simple hamburger menu toggle for mobile
-        function toggleMenu() {
-            var menu = document.querySelector('.menu-links');
-            if (menu) {
-                menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-            }
-        }
-    </script>
+    <script src="script.js"></script>
+
 </body>
 </html>
 <?php

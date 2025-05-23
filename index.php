@@ -18,9 +18,8 @@ session_start();
       <div class="logo">iPhone DIY</div>
       <div>
         <ul class="nav-links">
-          <!-- <li><a href="#about">About</a></li> -->
           <li><a href="#categories">Categories</a></li>
-          <li><a href="#news">News</a></li>
+          <li><a href="#about">About Us</a></li>
           <?php if (isset($_SESSION['username'])): ?>
             <li><a href="#profile">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
           <?php else: ?>
@@ -29,9 +28,6 @@ session_start();
           <?php if (isset($_SESSION['username'])): ?>
              <li><a href="logout.php">Logout</a></li>
           <?php endif; ?>
-          <!-- <li><a href="#login" onclick="openLoginModal()">Login</a></li> -->
-                <!-- <li><a href="logout.php">Logout</a></li> -->
-                <!-- <li><a href="#" id="login-btn">Login</a></li> -->
         </ul>
       </div>
     </nav>
@@ -44,7 +40,7 @@ session_start();
           <span></span>
         </div>
         <div class="menu-links">
-          <!-- <li><a href="#about" onclick="toggleMenu()">About</a></li> -->
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
           <li><a href="#categories" onclick="toggleMenu()">Categories</a></li>
           <li><a href="#news" onclick="toggleMenu()">News</a></li>
           <!-- <li><a href="#login" onclick="toggleMenu()">Login</a></li> -->
@@ -73,7 +69,7 @@ session_start();
           <div class="search-box">
             
             <input type="text" class="btn btn-color-3" placeholder="Search for a device">
-            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            <button class="btn btn-color-1" onclick="location.href='search.php'">
             Find Device</button>
           </div>  
         </div>
@@ -151,14 +147,24 @@ session_start();
       </div>  
       </div>
       
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#news'"/>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#about'"/>
 
     </section>
 
-    <section id="news">
-      <h1 class="title">News</h1>
-      <p class="section__text__p1">Stay Updated: Latest Tips and Trends in DIY Repairs!</p>
-
+    <section id="about">
+      <h1 class="title">About Us</h1>
+      <p class="section__text__p1">Welcome to <strong>iPhone DIY</strong>!</p>
+      <br><br>
+             <div class="container">
+        <p class="section__text__p1">We are your ultimate resource for iPhone repairs, dedicated to helping users like you maintain and fix your devices with confidence. Our mission is to empower iPhone owners by providing comprehensive repair guides that are easy to follow, regardless of your technical skills.</p>
+        <br>
+        <p class="section__text__p1">At iPhone DIY, we believe in the power of community. Our platform not only offers expert-created tutorials but also allows users to share their own repair guides. We encourage you to contribute your knowledge and experiences, helping others tackle their repair challenges.</p>
+        <br>
+        <p class="section__text__p1">Interaction is key to our community. Our comment sections provide a space for you to ask questions, share insights, and connect with fellow iPhone enthusiasts. Together, we can create a supportive environment where everyone feels welcome to learn and grow.</p>
+        <br>
+        <p class="section__text__p1">Join us on this journey to become a DIY repair pro! Whether you’re fixing a cracked screen or troubleshooting software issues, <strong>iPhone DIY</strong> is here to guide you every step of the way. Thank you for being part of our community!</p>
+    </div>
+<br><br><br><br>
       <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'"/>
     
     </section>
@@ -179,9 +185,8 @@ session_start();
         <div>
           <ul class="nav-links">
             <li><a href="#profile">Home</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#categories">Categories</a></li>
-            <li><a href="#news">News</a></li>
+            <li><a href="#about">About</a></li>
           </ul>
         </div>
       </nav>

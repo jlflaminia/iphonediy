@@ -4,7 +4,7 @@ session_start();
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = '';
+$pass = 'root';
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
@@ -25,7 +25,6 @@ if (isset($_GET['guide_id'])) {
     $guide = $result->fetch_assoc();
     $stmt->close();
 }
-
 
 
 // Handle comment submission

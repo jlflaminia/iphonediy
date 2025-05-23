@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = '';
+$pass = 'root';
 $submitted = false;
 $created_by = $_SESSION['username'];
 $display_username = '';

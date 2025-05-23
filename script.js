@@ -5,6 +5,8 @@ function toggleMenu() {
   icon.classList.toggle("open");
 }
 
+
+
 // // Get the "Login" nav link and the modal elements
 // const loginNavLink = document.querySelector('.nav-links li a[href="#login"]');
 // const loginModal = document.getElementById('login-modal');

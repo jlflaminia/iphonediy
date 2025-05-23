@@ -8,7 +8,7 @@
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = '';
+$pass = 'root';
 
 $conn = new mysqli($host, $user, $pass, $db);
 

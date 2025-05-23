@@ -5,7 +5,7 @@ session_start();
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = '';
+$pass = 'root';
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -59,52 +59,8 @@ $result = $conn->query($query);
     <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mediaqueries.css" />
+    <link rel="stylesheet" href="css/admin-dash.css" />
     <style>
-        body {
-            background: #f6f8fa;
-            margin: 0;
-            padding: 0;
-        }
-        .admin-container {
-            max-width: 900px;
-            margin: 40px auto 0 auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            padding: 36px 40px 32px 40px;
-        }
-        .admin-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: #222;
-            letter-spacing: 1px;
-            text-align: center;
-        }
-        .admin-actions {
-            margin-bottom: 18px;
-        }
-        .admin-actions ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 24px;
-        }
-        .admin-actions li {
-            display: inline-block;
-        }
-        .admin-actions a {
-            color: #2980b9;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.08rem;
-            transition: color 0.2s;
-        }
-        .admin-actions a:hover {
-            color: #1a5a8a;
-            text-decoration: underline;
-        }
         .admin-table {
             width: 100%;
             border-collapse: collapse;
@@ -136,7 +92,7 @@ $result = $conn->query($query);
             letter-spacing: 0.5px;
         }
         .badge-admin {
-            background: #2980b9;
+            background: black;
             color: #fff;
         }
         .badge-user {
@@ -159,11 +115,11 @@ $result = $conn->query($query);
             transition: background 0.2s, color 0.2s;
         }
         .toggle-btn {
-            background: #27ae60;
+            background: #333;
             color: #fff;
         }
         .toggle-btn:hover {
-            background: #219150;
+            background: #555;
         }
         .toggle-btn[disabled] {
             background: #ccc;
@@ -176,101 +132,49 @@ $result = $conn->query($query);
             margin-top: 24px;
             text-align: center;
         }
-        @media (max-width: 800px) {
-            .admin-container {
-                padding: 18px 4px;
-            }
-            .admin-title {
-                font-size: 1.3rem;
-            }
-            .admin-table th, .admin-table td {
-                padding: 8px 4px;
-                font-size: 0.97rem;
-            }
-            .admin-actions ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-        nav#desktop-nav, nav#hamburger-nav {
-            background: #222;
-            color: #fff;
-            padding: 0.7rem 0;
-        }
-        nav .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-left: 2rem;
-        }
-        nav .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            margin-right: 2rem;
-        }
-        nav .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav .nav-links li a:hover {
-            color: #f1c40f;
-        }
-        footer {
-            text-align: center;
-            color: #888;
-            font-size: 1rem;
-            margin-top: 40px;
-            padding: 18px 0 10px 0;
-            background: #f5f6fa;
-        }
-        .back-link {
-            color: #2980b9;
-            margin-left: 0;
-            text-decoration: underline;
-            font-size: 1.05rem;
-            display: inline-block;
-            margin-bottom: 18px;
-        }
-        .back-link:hover {
-            color: #1a5a8a;
-        }
+
     </style>
 </head>
 <body>
-    <nav id="desktop-nav">
-        <div class="logo">iPhone DIY Admin</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="index.php">Main Site</a></li>
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </div>
+
+        <nav id="desktop-nav">
+            <div class="logo">iPhone DIY Admin</div>
+            <div>
+                <ul class="nav-links">
+                    <li><a href="index.php">Main Site</a></li>
+                    <li><a href="logout.php">Logout</a></li>
+                </ul>
+            </div>
     </nav>
-    <nav id="hamburger-nav" style="display:none;">
-        <div class="logo">iPhone DIY Admin</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+    <nav id="hamburger-nav">
+            <div class="logo">iPhone DIY Admin</div>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-links">
+                        <li><a href="index.php" onclick="toggleMenu()">Main Site</a></li>
+                        <li><a href="logout.php" onclick="toggleMenu()">Logout</a></li>            
+                </div>
             </div>
-            <div class="menu-links">
-                <li><a href="index.php" onclick="toggleMenu()">Main Site</a></li>
-                <li><a href="logout.php" onclick="toggleMenu()">Logout</a></li>
-            </div>
-        </div>
     </nav>
     <div class="admin-container">
-        <a href="admin.php" class="back-link">&larr; Back to Guide Management</a>
-        <div class="admin-title">User Management</div>
+        <div class="title">Dashboard</div>
+        <p class="section__text__p1">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
+        <br/>
         <div class="admin-actions">
-            <ul>
-                <li><a href="admin-user.php">Manage Users</a></li>
-                <li><a href="admin_approve_guides.php">Approve Guides</a></li>
+            <ul class="admin-actions-list">
+                <li><a class="admin-action-link" href="admin.php">Submitted Guides</a></li>
+                <li><a class="admin-action-link" href="admin-user.php" style="background:#f5f6fa ;color:#333;">Manage Users</a></li>
+                <li><a class="admin-action-link" href="admin_approved_list.php">Approved Guides</a></li>
+                <li><a class="admin-action-link" href="admin_approve_guides.php">Pending Guides</a></li>
             </ul>
         </div>
+        <hr>
+        <br/>    
+        <p class="section__text__p2">User Management</p>
         <table class="admin-table">
             <thead>
                 <tr>
@@ -320,14 +224,7 @@ $result = $conn->query($query);
     <footer>
         <p>&copy; <?= date('Y') ?> Master DIY. All Rights Reserved.</p>
     </footer>
-    <script>
-        // Simple hamburger menu toggle for mobile
-        function toggleMenu() {
-            var menu = document.querySelector('.menu-links');
-            if (menu) {
-                menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-            }
-        }
+    <script src="script.js"></script>
     </script>
 </body>
 </html>
