@@ -140,7 +140,7 @@ session_start();
         <div class="product-info">
             <h1> Step 1 </h1>
             <p class="section__text__p2 ">Before you begin</p>
-            <p>Unplug any cables from your phone. Hold the power and either volume buttons and slide to power off your phone.</p>
+            <p>Unplug any cables from your phone.</p>
         </div>
     </div>
   </section>
@@ -170,7 +170,7 @@ session_start();
         <div class="product-info">
             <h1>Step 4</h1>
             <p class="section__text__p2 ">Mark your opening picks</p>
-            <p></p>
+            <p>Measure 3 mm from the tip and mark the opening pick with a permanent marker.</p>
         </div>
     </div>
   </section>
@@ -179,7 +179,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/5.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 5</h1>
-            <p></p>
+            <p class="section__text__p2 ">Heat the bottom edge</p>
+            <p>Use a hair dryer or heat gun to heat the bottom edge of the back glass until it's hot to the touch.</p>
         </div>
     </div>
   </section>
@@ -188,7 +189,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/6.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 6</h1>
-            <p></p>
+            <p class="section__text__p2 ">Insert an opening pick</p>
+            <p>Apply a suction handle to the bottom edge of the back glass.</p>
         </div>
     </div>
   </section>
@@ -197,7 +199,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/7.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 7</h1>
-            <p></p>
+            <p class="section__text__p2 ">Back glass information</p>
+            <p>A delicate cable connecting the back glass to the phone, right next to the volume down button. Don't insert your pick here to avoid slicing the cable.</p>
         </div>
     </div>
   </section>
@@ -206,7 +209,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/8.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 8</h1>
-            <p></p>
+            <p class="section__text__p2 ">Heat the right edge</p>
+            <p>Use a hair dryer or heat gun to heat the right edge of the back glass until it's hot to the touch.</p>
         </div>
     </div>
   </section>
@@ -215,7 +219,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/9.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 9</h1>
-            <p></p>
+            <p class="section__text__p2 ">Separate the bottom right adhesive</p>
+            <p>Slide your pick around the bottom right corner and to the volume down button to separate the adhesive and release the metal clip.</p>
         </div>
     </div>
   </section>
@@ -224,7 +229,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/10.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 10</h1>
-            <p></p>
+            <p class="section__text__p2 ">Heat the left edge</p>
+            <p>Use a hair dryer or heat gun to heat the left edge of the back glass until it's hot to the touch.</p>
         </div>
     </div>
   </section>
@@ -233,7 +239,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/11.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 11</h1>
-            <p></p>
+            <p class="section__text__p2 ">Separate the left adhesive</p>
+            <p>Insert a second opening pick at the bottom edge.</p>
         </div>
     </div>
   </section>
@@ -242,7 +249,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/12.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 12</h1>
-            <p></p>
+            <p class="section__text__p2 ">Heat the top edge</p>
+            <p>Use a hair dryer or heat gun to heat the top edge of the back glass until it's hot to the touch.</p>
         </div>
     </div>
   </section>
@@ -251,7 +259,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/13.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 13</h1>
-            <p></p>
+            <p class="section__text__p2 ">Separate the top right adhesive</p>
+            <p>Slide your second opening pick around the top left corner and along the top edge to separate the adhesive and release the metal clips.</p>
         </div>
     </div>
   </section>
@@ -260,7 +269,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/14.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 14</h1>
-            <p></p>
+            <p class="section__text__p2 ">Reposition the back glass</p>
+            <p>Swing open the back glass to the right of the phone to separate the remaining adhesive.</p>
         </div>
     </div>
   </section>
@@ -269,7 +279,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/15.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 15</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the middle connector cover screws</p>
+            <p>Use a tri-point Y000 driver to remove the two 1 mm‑long screws securing the middle connector cover.</p>
         </div>
     </div>
   </section>
@@ -278,7 +289,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/16.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 16</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the middle connector cover</p>
+            <p>Insert the point of a spudger in either cutout on the middle connector cover.</p>
         </div>
     </div>
   </section>
@@ -287,7 +299,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/17.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 17</h1>
-            <p></p>
+            <p class="section__text__p2 ">Disconnect the battery</p>
+            <p>Use the point of a spudger to pry up and disconnect the battery press connector.</p>
         </div>
     </div>
   </section>
@@ -296,7 +309,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/18.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 18</h1>
-            <p></p>
+            <p class="section__text__p2 ">Disconnect the wireless charging coil</p>
+            <p>Use the point of a spudger to pry up and disconnect the wireless charging coil press connector.</p>
         </div>
     </div>
   </section>
@@ -305,7 +319,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/19.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 19</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the back glass</p>
+            <p>Lift the back glass off the frame and remove it.</p>
         </div>
     </div>
   </section>
@@ -314,7 +329,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/20.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 20</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the top bracket screws</p>
+            <p>Use a screwdriver to remove the four screws securing the top bracket:</p>
         </div>
     </div>
   </section>
@@ -323,7 +339,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/21.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 21</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the top bracket</p>
+            <p>Use tweezers, or your fingers, to remove the top bracket.</p>
         </div>
     </div>
   </section>
@@ -332,7 +349,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/22.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 22</h1>
-            <p></p>
+            <p class="section__text__p2 ">Disconnect the rear camera assembly</p>
+            <p>Use the point of a spudger to pry up and disconnect the rear camera assembly press connector.</p>
         </div>
     </div>
   </section>
@@ -341,7 +359,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/23.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 23</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the rear camera assembly screws</p>
+            <p>Use a Phillips screwdriver to remove the three screws securing the rear camera assembly.</p>
         </div>
     </div>
   </section>
@@ -350,7 +369,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/24.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 24</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the rear camera assembly</p>
+            <p>Insert the tip of a spudger into the top screw hole in the rear camera assembly.</p>
         </div>
     </div>
   </section>
@@ -359,7 +379,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/25.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 25</h1>
-            <p></p>
+            <p class="section__text__p2 ">End of disassembly</p>
+            <p>Congratulations on completing disassembly! The remaining steps will show you how to reassemble your device.</p>
         </div>
     </div>
   </section>
@@ -368,7 +389,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/26.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 26</h1>
-            <p></p>
+            <p class="section__text__p2 ">Place the rear camera assembly</p>
+            <p>Place the rear camera assembly into its recess in the frame.</p>
         </div>
     </div>
   </section>
@@ -377,7 +399,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/27.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 27</h1>
-            <p></p>
+            <p class="section__text__p2 ">Install the rear camera assembly screws</p>
+            <p>Use a Phillips screwdriver to install the three screws securing the rear camera assembly.</p>
         </div>
     </div>
   </section>
@@ -386,7 +409,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/28.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 28</h1>
-            <p></p>
+            <p class="section__text__p2 ">Connect the rear camera assembly</p>
+            <p>Use the flat end of a spudger to connect the rear camera assembly press connector.</p>
         </div>
     </div>
   </section>
@@ -395,7 +419,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/29.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 29</h1>
-            <p></p>
+            <p class="section__text__p2 ">Reinstall the top bracket</p>
+            <p>Use tweezers, or your fingers, to reinstall the top bracket.</p>
         </div>
     </div>
   </section>
@@ -404,7 +429,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/30.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 30</h1>
-            <p></p>
+            <p class="section__text__p2 ">Install the top bracket screws</p>
+            <p>Use a screwdriver to install the four screws securing the top bracket.</p>
         </div>
     </div>
   </section>
@@ -413,7 +439,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/31.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 31</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the back glass adhesive</p>
+            <p>Use the pointed end of a spudger to press and roll the adhesive until you can grip it with a pair of tweezers.</p>
         </div>
     </div>
   </section>
@@ -422,7 +449,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/32.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 32</h1>
-            <p></p>
+            <p class="section__text__p2 "></p>
+            <p>Use the tweezers to pull the adhesive off of the phone.</p>
         </div>
     </div>
   </section>
@@ -431,7 +459,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/33.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 33</h1>
-            <p></p>
+            <p class="section__text__p2 ">Clean the frame</p>
+            <p>Wrap a microfiber or lint-free cloth over the point of a spudger and apply a few drops of high-concentration isopropyl alcohol (over 90%) to the cloth.</p>
         </div>
     </div>
   </section>
@@ -440,7 +469,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/34.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 34</h1>
-            <p></p>
+            <p class="section__text__p2 ">Clean the black glass</p>
+            <p>Apply a few drops of high-concentration isopropyl alcohol (over 90%) to a microfiber or lint-free cloth and wipe around the perimeter of the back glass to prepare the surface for new adhesive.</p>
         </div>
     </div>
   </section>
@@ -449,7 +479,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/35.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 35</h1>
-            <p></p>
+            <p class="section__text__p2 ">Orient the adhesive</p>
+            <p>Orient your replacement adhesive over the frame with the larger blue liner on the underside and its pull tab in the bottom-right corner.</p>
         </div>
     </div>
   </section>
@@ -458,7 +489,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/36.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 36</h1>
-            <p></p>
+            <p class="section__text__p2 ">Expose the bottom edge of the adhesive</p>
+            <p>Use the pull tab to begin peeling the back liner off of the adhesive starting from the bottom, but do not remove the liner all the way.</p>
         </div>
     </div>
   </section>
@@ -467,7 +499,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/37.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 37</h1>
-            <p></p>
+            <p class="section__text__p2 ">Apply the adhesive</p>
+            <p>Hold the blue liner out of the way and align the adhesive with the bottom edge of the iPhone.</p>
         </div>
     </div>
   </section>
@@ -476,7 +509,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/38.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 38</h1>
-            <p></p>
+            <p class="section__text__p2 "></p>
+            <p>Continue peeling the back liner off of the adhesive while pressing the adhesive into place along the edges of the iPhone's frame.</p>
         </div>
     </div>
   </section>
@@ -485,7 +519,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/39.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 39</h1>
-            <p></p>
+            <p class="section__text__p2 ">Press the adhesive into place</p>
+            <p>Use the flat end of a spudger to press the adhesive into place around the perimeter of the frame.</p>
         </div>
     </div>
   </section>
@@ -494,7 +529,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/40.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 40</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the pink liner</p>
+            <p>Use the small pull tab in the top-right corner to remove the pink adhesive liner.</p>
         </div>
     </div>
   </section>
@@ -503,7 +539,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/41.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 41</h1>
-            <p></p>
+            <p class="section__text__p2 "></p>
+            <p>If you don't see these pull tabs, you may have accidentally removed the thin liners in the previous step. If the adhesive is clean and properly aligned, you may proceed, just be careful not to touch anything to the exposed adhesive until you are ready to install the back glass</p>
         </div>
     </div>
   </section>
@@ -512,7 +549,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/42.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 42</h1>
-            <p></p>
+            <p class="section__text__p2 ">Connect the charging coil</p>
+            <p>Prop up the back glass along the right edge of your iPhone, using a box or similar sturdy object to support the screen.</p>
         </div>
     </div>
   </section>
@@ -521,7 +559,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/43.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 43</h1>
-            <p></p>
+            <p class="section__text__p2 ">Connect the battery</p>
+            <p>Use the flat end of a spudger or your finger to connect the battery.</p>
         </div>
     </div>
   </section>
@@ -530,7 +569,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/44.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 44</h1>
-            <p></p>
+            <p class="section__text__p2 ">Install the cover</p>
+            <p>Lay the connector cover on the phone so the hooks are slightly to the left of their slots in the logic board..</p>
         </div>
     </div>
   </section>
@@ -539,7 +579,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/45.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 45</h1>
-            <p></p>
+            <p class="section__text__p2 ">Install the cover screws</p>
+            <p>Use a tri-point Y000 driver to install the two 1 mm‑long screws securing the middle connector cover.</p>
         </div>
     </div>
   </section>
@@ -548,7 +589,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/46.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 46</h1>
-            <p></p>
+            <p class="section__text__p2 ">Remove the final adhesive liners</p>
+            <p>Use the blue tabs to remove the liners from the bottom, left, and top edges of your iPhone. Wait to remove the liner along the right edge.</p>
         </div>
     </div>
   </section>
@@ -557,7 +599,9 @@ session_start();
         <div class="product-image"><img src="./ip/screen/47.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 47</h1>
-            <p></p>
+            <p class="section__text__p2 "></p>
+            <p>
+            Without letting the back glass touch the adhesive, hold the back glass over the phone so you can access the final liner along the right edge of the phone.</p>
         </div>
     </div>
   </section>
@@ -566,7 +610,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/48.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 48</h1>
-            <p></p>
+            <p class="section__text__p2 ">Place the back glass</p>
+            <p>Hold the back glass above the phone and align it with the frame.</p>
         </div>
     </div>
   </section>
@@ -575,7 +620,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/49.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 49</h1>
-            <p></p>
+            <p class="section__text__p2 ">Heat the back glass</p>
+            <p>To help the adhesive bond, apply heat to the edges of the back glass using an iOpener, hair dryer, or heat gun until it's hot to the touch.</p>
         </div>
     </div>
   </section>
@@ -584,7 +630,8 @@ session_start();
         <div class="product-image"><img src="./ip/screen/50.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 50</h1>
-            <p></p>
+            <p class="section__text__p2 ">Press the back glass</p>
+            <p>If you have the box your iPhone came in, take the lid and place it on a flat surface.</p>
         </div>
     </div>
   </section>
