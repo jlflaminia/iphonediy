@@ -56,7 +56,7 @@ $result = $conn->query($query);
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - iPhone DIY</title>
-    <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mediaqueries.css" />
     <link rel="stylesheet" href="css/admin-dash.css" />

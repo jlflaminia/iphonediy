@@ -99,6 +99,7 @@ if (isset($_GET['registered']) && $_GET['registered'] == 1) {
     </form>
 
     <p>Don't have an account? <a href="register.php">Register here</a>.</p>
+    <p style="margin-top:10px;"><a href="index.php" style="margin-top:20px;">Back to Home</a></p>
 </div>
 </div>
 </body>

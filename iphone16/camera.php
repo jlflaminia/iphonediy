@@ -12,44 +12,6 @@ session_start();
       <link rel="stylesheet" href="\iphonediy/css/style.css">
       <link rel="stylesheet" href="\iphonediy/css/mediaqueries.css">
       <link rel="stylesheet" href="\iphonediy/css/iphone-style.css">
-    <style>
-      .tools-scrollbox {
-    margin: 2rem auto;
-    max-width: 400px;
-    background: #f8f8f8;
-    border-radius: px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 1.5rem;
-}
-
-.tools-scrollbox h2 {
-    margin-top: 0;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: #222;
-}
-
-.tools-list-scroll {
-    max-height: 180px;
-    overflow-y: auto;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    background: #fff;
-    padding: 1rem;
-}
-
-.tools-list-scroll ul {
-    list-style: disc inside;
-    margin: 0;
-    padding: 0;
-}
-
-.tools-list-scroll li {
-    margin-bottom: 0.7rem;
-    font-size: 1rem;
-    color: #333;
-}
-    </style>
   </head>
 <body>
 <nav id="desktop-nav">
@@ -87,10 +49,13 @@ session_start();
         </div>
       </div>
     </nav>
+    <div>
+      <a href="\iphonediy/ip16.php" style="color:#333;margin-left:10rem">&larr; Back to iPhone 16</a>
+    </div>
     <section id="categories">
     <div class="container">
         <div class="product-image">
-            <img src="./ip/screen.png" alt="screen">
+            <img src="\iphonediy/ip/camera.png" alt="screen">
         </div>
         <!-- <h1>iPhone 16 screen Replacement</h1>
         <p class="date">Last updated on April 23, 2025</p> -->
@@ -136,7 +101,7 @@ session_start();
 
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/1.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/1.jpg" alt="steps"></div>
         <div class="product-info">
             <h1> Step 1 </h1>
             <p class="section__text__p2 ">Before you begin</p>
@@ -146,7 +111,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/2.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/2.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 2</h1>
             <p class="section__text__p2 ">Tape over any cracks</p>
@@ -156,7 +121,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/3.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/3.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 3</h1>
             <p class="section__text__p2 ">Remove the pentalobe screws</p>
@@ -166,7 +131,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/4.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/4.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 4</h1>
             <p class="section__text__p2 ">Mark your opening picks</p>
@@ -176,7 +141,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/5.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/5.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 5</h1>
             <p class="section__text__p2 ">Heat the bottom edge</p>
@@ -186,7 +151,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/6.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/6.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 6</h1>
             <p class="section__text__p2 ">Insert an opening pick</p>
@@ -196,7 +161,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/7.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/7.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 7</h1>
             <p class="section__text__p2 ">Back glass information</p>
@@ -206,7 +171,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/8.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/8.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 8</h1>
             <p class="section__text__p2 ">Heat the right edge</p>
@@ -216,7 +181,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/9.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/9.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 9</h1>
             <p class="section__text__p2 ">Separate the bottom right adhesive</p>
@@ -226,7 +191,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/10.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/10.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 10</h1>
             <p class="section__text__p2 ">Heat the left edge</p>
@@ -236,7 +201,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/11.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/11.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 11</h1>
             <p class="section__text__p2 ">Separate the left adhesive</p>
@@ -246,7 +211,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/12.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/12.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 12</h1>
             <p class="section__text__p2 ">Heat the top edge</p>
@@ -256,7 +221,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/13.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/13.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 13</h1>
             <p class="section__text__p2 ">Separate the top right adhesive</p>
@@ -266,7 +231,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/14.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/14.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 14</h1>
             <p class="section__text__p2 ">Reposition the back glass</p>
@@ -276,7 +241,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/15.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/15.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 15</h1>
             <p class="section__text__p2 ">Remove the middle connector cover screws</p>
@@ -286,7 +251,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/16.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/16.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 16</h1>
             <p class="section__text__p2 ">Remove the middle connector cover</p>
@@ -296,7 +261,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/17.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/17.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 17</h1>
             <p class="section__text__p2 ">Disconnect the battery</p>
@@ -306,7 +271,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/18.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/18.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 18</h1>
             <p class="section__text__p2 ">Disconnect the wireless charging coil</p>
@@ -316,7 +281,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/19.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/19.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 19</h1>
             <p class="section__text__p2 ">Remove the back glass</p>
@@ -326,7 +291,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/20.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/20.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 20</h1>
             <p class="section__text__p2 ">Remove the top bracket screws</p>
@@ -336,7 +301,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/21.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/21.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 21</h1>
             <p class="section__text__p2 ">Remove the top bracket</p>
@@ -346,7 +311,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/22.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/22.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 22</h1>
             <p class="section__text__p2 ">Disconnect the rear camera assembly</p>
@@ -356,7 +321,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/23.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/23.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 23</h1>
             <p class="section__text__p2 ">Remove the rear camera assembly screws</p>
@@ -366,7 +331,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/24.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/24.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 24</h1>
             <p class="section__text__p2 ">Remove the rear camera assembly</p>
@@ -376,7 +341,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/25.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/25.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 25</h1>
             <p class="section__text__p2 ">End of disassembly</p>
@@ -386,7 +351,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/26.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/26.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 26</h1>
             <p class="section__text__p2 ">Place the rear camera assembly</p>
@@ -396,7 +361,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/27.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/27.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 27</h1>
             <p class="section__text__p2 ">Install the rear camera assembly screws</p>
@@ -406,7 +371,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/28.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/28.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 28</h1>
             <p class="section__text__p2 ">Connect the rear camera assembly</p>
@@ -416,7 +381,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/29.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/29.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 29</h1>
             <p class="section__text__p2 ">Reinstall the top bracket</p>
@@ -426,7 +391,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/30.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/30.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 30</h1>
             <p class="section__text__p2 ">Install the top bracket screws</p>
@@ -436,7 +401,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/31.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/31.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 31</h1>
             <p class="section__text__p2 ">Remove the back glass adhesive</p>
@@ -446,7 +411,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/32.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/32.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 32</h1>
             <p class="section__text__p2 "></p>
@@ -456,7 +421,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/33.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/33.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 33</h1>
             <p class="section__text__p2 ">Clean the frame</p>
@@ -466,7 +431,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/34.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/34.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 34</h1>
             <p class="section__text__p2 ">Clean the black glass</p>
@@ -476,7 +441,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/35.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/35.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 35</h1>
             <p class="section__text__p2 ">Orient the adhesive</p>
@@ -486,7 +451,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/36.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/36.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 36</h1>
             <p class="section__text__p2 ">Expose the bottom edge of the adhesive</p>
@@ -496,7 +461,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/37.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/37.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 37</h1>
             <p class="section__text__p2 ">Apply the adhesive</p>
@@ -506,7 +471,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/38.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/38.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 38</h1>
             <p class="section__text__p2 "></p>
@@ -516,7 +481,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/39.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/39.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 39</h1>
             <p class="section__text__p2 ">Press the adhesive into place</p>
@@ -526,7 +491,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/40.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/40.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 40</h1>
             <p class="section__text__p2 ">Remove the pink liner</p>
@@ -536,7 +501,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/41.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/41.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 41</h1>
             <p class="section__text__p2 "></p>
@@ -546,7 +511,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/42.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/42.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 42</h1>
             <p class="section__text__p2 ">Connect the charging coil</p>
@@ -556,7 +521,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/43.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/43.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 43</h1>
             <p class="section__text__p2 ">Connect the battery</p>
@@ -566,7 +531,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/44.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/44.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 44</h1>
             <p class="section__text__p2 ">Install the cover</p>
@@ -576,7 +541,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/45.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/45.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 45</h1>
             <p class="section__text__p2 ">Install the cover screws</p>
@@ -586,7 +551,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/46.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/46.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 46</h1>
             <p class="section__text__p2 ">Remove the final adhesive liners</p>
@@ -596,7 +561,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/47.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/47.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 47</h1>
             <p class="section__text__p2 "></p>
@@ -607,7 +572,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/48.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/48.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 48</h1>
             <p class="section__text__p2 ">Place the back glass</p>
@@ -617,7 +582,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/49.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/49.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 49</h1>
             <p class="section__text__p2 ">Heat the back glass</p>
@@ -627,7 +592,7 @@ session_start();
   </section>
   <section id="categories">
     <div class="container">
-        <div class="product-image"><img src="./ip/screen/50.jpg" alt="steps"></div>
+        <div class="product-image"><img src="\iphonediy/ip/screen/50.jpg" alt="steps"></div>
         <div class="product-info">
             <h1>Step 50</h1>
             <p class="section__text__p2 ">Press the back glass</p>
@@ -635,19 +600,6 @@ session_start();
         </div>
     </div>
   </section>
-
-  
-    <div class="comment-box">
-        <h2>Add Comment</h2>
-        <div class="toolbar">
-            <button>B</button>
-            <button>I</button>
-            <button>U</button>
-            <button>🔗</button>
-            <button>📷</button>
-        </div>
-        <textarea placeholder="Write your comment here..."></textarea>
-        <button class="post-button">Post Comment</button>
-    </div>
+  <footer><p>Copyright &#169; 2025 iPhone DIY. All Rights Reserved.</p></footer>
 </body>
 </html>

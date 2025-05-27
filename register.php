@@ -65,7 +65,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/ip-wlogo.png" type="image/x-icon">
     <title>Register</title>
-    <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
 </head>

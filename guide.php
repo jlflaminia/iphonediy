@@ -96,6 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Guide</title>
+    <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/guide.css">

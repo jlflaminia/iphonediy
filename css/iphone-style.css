@@ -95,3 +95,36 @@ align-items: center;
 padding: 0;
 }
 }
+
+        .tools-scrollbox {
+            margin: 2rem auto;
+            max-width: 600px;
+            background: #f8f8f8;
+            border-radius: px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 1.5rem;
+        }
+        .tools-scrollbox h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #222;
+        }
+        .tools-list-scroll {
+            max-height: 180px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            background: #fff;
+            padding: 1rem;
+        }
+        .tools-list-scroll ul {
+            list-style: disc inside;
+            margin: 0;
+            padding: 0;
+        }
+        .tools-list-scroll li {
+            margin-bottom: 0.7rem;
+            font-size: 1rem;
+            color: #333;
+        }

@@ -38,7 +38,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPhone 16</title>
-    <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/iphone-style.css">
@@ -81,7 +81,9 @@ $conn->close();
       </div>
     </nav>
       <div>
-        <a href="index.php#categories" style="color:#333;margin-left:10rem">&larr; Back to Categories</a>
+        <a href="\iphonediy/index.php" style="color:#777;margin-left:10rem">Home ></a>
+        <a href="\iphonediy/index.php#categories" style="color:#777;">iPhone ></a>
+        <a href="\iphonediy/ip16.php" style="color:black;"><b>iPhone 16</b></a>
       </div>
     <section id="categories">
     <div class="container">

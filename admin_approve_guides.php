@@ -27,6 +27,7 @@ $result = $conn->query("SELECT id, title, created_by, created_at FROM guides WHE
 <head>
     <meta charset="UTF-8">
     <title>Admin - Approve Guides</title>
+    <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
