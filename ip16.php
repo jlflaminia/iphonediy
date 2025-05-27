@@ -43,6 +43,16 @@ $conn->close();
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/iphone-style.css">
     <link rel="stylesheet" href="css/user-guide.css">
+    <style>
+      .hamburger-menu .menu-links {
+        z-index: 1000;
+        width: auto;       
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+       }
+      .hamburger-menu.open .menu-links {
+        display: block;
+        }
+    </style>
 </head>
 <body>
 <nav id="desktop-nav">
@@ -50,7 +60,11 @@ $conn->close();
       <div>
         <ul class="nav-links">
           <?php if (isset($_SESSION['username'])): ?>
+           <?php if (isset($_SESSION['usertype']) && $_SESSION['usertype'] === 'admin'): ?>
+            <li><a href="admin.php">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+          <?php else: ?>
             <li><a href="#profile">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+          <?php endif; ?> 
           <?php else: ?>
             <li><a href="login.php">  </a></li>
           <?php endif; ?>
@@ -59,7 +73,7 @@ $conn->close();
           <?php endif; ?>
         </ul>
       </div>
-    </nav>
+</nav>
     <nav id="hamburger-nav">
       <div class="logo">iPhone DIY</div>
       <div class="hamburger-menu">
@@ -70,9 +84,13 @@ $conn->close();
         </div>
         <div class="menu-links">
           <?php if (isset($_SESSION['username'])): ?>
-            <li><a href="#profile">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+          <?php if (isset($_SESSION['usertype']) && $_SESSION['usertype'] === 'admin'): ?>
+            <li><a href="admin.php">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
           <?php else: ?>
-            <li><a href="login.php">  </a></li>
+            <li><a href="#profile">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+          <?php endif; ?>           
+          <?php else: ?>
+            <li><a href="login.php">Login</a></li>
           <?php endif; ?>
           <?php if (isset($_SESSION['username'])): ?>
              <li><a href="logout.php">Logout</a></li>
@@ -83,7 +101,7 @@ $conn->close();
       <div>
         <a href="\iphonediy/index.php" style="color:#777;margin-left:10rem">Home ></a>
         <a href="\iphonediy/index.php#categories" style="color:#777;">iPhone ></a>
-        <a href="\iphonediy/ip16.php" style="color:black;"><b>iPhone 16</b></a>
+        <a href="#" style="color:black;"><b>iPhone 16</b></a>
       </div>
     <section id="categories">
     <div class="container">
@@ -97,8 +115,7 @@ $conn->close();
                 <button onclick="location.href='guide.php'">Create a Guide</button>
             </div>
         </div>
-    </div>
-      
+    </div>   
       <div class="main-details-container">
       <div class="about-containers ip-cat-grid">
         <a href="iphone16/battery.php" class="details-container color-container cat">
@@ -137,5 +154,6 @@ $conn->close();
         </ul>
     </div>    
 </section>
+<script src="script.js"></script>
 </body>
 </html>

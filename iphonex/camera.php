@@ -7,12 +7,11 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPhone 16 - Camera</title>
+    <title>iPhone X - Camera</title>
       <link rel="shortcut icon" href="\iphonediy/assets/iphone-x.png" type="image/x-icon">
       <link rel="stylesheet" href="\iphonediy/css/style.css">
       <link rel="stylesheet" href="\iphonediy/css/mediaqueries.css">
       <link rel="stylesheet" href="\iphonediy/css/iphone-style.css">
-      <link rel="stylesheet" href="\iphonediy/css/admin-img.css">
   </head>
 <body>
 <nav id="desktop-nav">
@@ -53,8 +52,8 @@ session_start();
       <div>
         <a href="\iphonediy/index.php" style="color:#777;margin-left:10rem">Home ></a>
         <a href="\iphonediy/index.php#categories" style="color:#777;">iPhone ></a>
-        <a href="\iphonediy/ip16.php" style="color:#777;">iPhone 16></a>
-        <a href="\iphonediy/ip16.php" style="color:black;"><b>iPhone 16 Camera</b></a>
+        <a href="\iphonediy/ipx.php" style="color:#777;">iPhone X></a>
+        <a href="#" style="color:black;"><b>iPhone X Camera</b></a>
       </div>
     <section id="categories">
     <div class="container">
@@ -65,17 +64,9 @@ session_start();
         <p class="date">Last updated on April 23, 2025</p> -->
 
         <div class="product-info">
-            <h1>iPhone 16 Screen Replacement</h1>
-            <div class="admin-image">
-                <img src="\iphonediy/assets/meon.jpg" alt="ADMIN SIMEON">
-                <div class="admin-details">
-                    <p class="date"><b>Simeon Kulalo</b><br> Last updated on April 23, 2025</p>
-                </div>
-            </div>              
-
-            <hr>
+            <h1>iPhone X Screen Replacement</h1>
             <p> <b>Introduction</b></p>
-            <p>Use this guide to replace a broken, cracked, or non‑responsive screen in your iPhone 16.</p>
+            <p>Use this guide to replace a broken, cracked, or non‑responsive screen in your iPhone X.</p>
             <p>Note: Since you can't disconnect the screen during this repair, be especially careful not to use metal prying tools or touch exposed contacts in your iPhone.</p>
         </div>          
     </section>

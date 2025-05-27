@@ -7,7 +7,7 @@ session_start();
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>iPhone 16</title>
+      <title>iPhone 13</title>
       <link rel="shortcut icon" href="\iphonediy/assets/iphone-x.png" type="image/x-icon">
       <link rel="stylesheet" href="\iphonediy/css/style.css">
       <link rel="stylesheet" href="\iphonediy/css/mediaqueries.css">
@@ -54,29 +54,29 @@ session_start();
       <div>
         <a href="\iphonediy/index.php" style="color:#777;margin-left:10rem">Home ></a>
         <a href="\iphonediy/index.php#categories" style="color:#777;">iPhone ></a>
-        <a href="\iphonediy/ip16.php" style="color:#777;">iPhone 16></a>
-        <a href="\iphonediy/ip16.php" style="color:black;"><b>iPhone 16 Battery</b></a>
+        <a href="\iphonediy/ip13.php" style="color:#777;">iPhone 13></a>
+        <a href="#" style="color:black;"><b>iPhone 13 Battery</b></a>
       </div>
 
       <section id="categories">          
-          <!-- <a href="\iphonediy/ipiphone16\iphonediy/ipip16.php" style="color:#333;">&larr; Back to iPhone 16</a>     -->
+          <!-- <a href="\iphonediy/ipiphone13\iphonediy/ipip13.php" style="color:#333;">&larr; Back to iPhone 13</a>     -->
       <div class="container">
           <div class="product-image">
               <img src="\iphonediy/ip/battery.png" alt="battery">
           </div>
-          <!-- <h1>iPhone 16 Battery Replacement</h1>
+          <!-- <h1>iPhone 13 Battery Replacement</h1>
           <p class="date">Last updated on April 23, 2025</p> -->
           <div class="product-info">
-              <h1>iPhone 16 Battery Replacement</h1>
-            <div class="admin-image">
-                <img src="\iphonediy/assets/jl.jpg" alt="ADMIN FLAMINIA">
-                <div class="admin-details">
-                    <p class="date"><b>JL Flaminia</b><br> Last updated on April 23, 2025</p>
-                </div>
-            </div>              
-            <hr>
+              <h1>iPhone 13 Battery Replacement</h1><br>
+              <div class="admin-image">
+                  <img src="\iphonediy/assets/jl.jpg" alt="ADMIN FLAMINIA">
+                  <div class="admin-details">
+                      <p class="date"><b>JL Flaminia</b><br> Last updated on April 23, 2025</p>
+                  </div>
+              </div>              
+              <hr>
               <p> <b>Introduction</b></p>
-              <p>The guide to replace the battery in your iPhone 16.</p>
+              <p>The guide to replace the battery in your iPhone 13.</p>
               <p>iPhone batteries are rated to 80% of their capacity for up to 500 charge cycles, or roughly 18-24 months. If your battery is draining quickly, it may be time to replace it.</p>
             </div>
           
@@ -86,11 +86,11 @@ session_start();
               <h2>Parts</h2>
               <ul>
                   <li>
-                      <span class="part-name">iPhone 16 Battery</span>
+                      <span class="part-name">iPhone 13 Battery</span>
                       <span class="part-price">$29.99</span>
                   </li>
                   <li>
-                      <span class="part-name">iPhone 16 Battery Adhesive</span>
+                      <span class="part-name">iPhone 13 Battery Adhesive</span>
                       <span class="part-price">$4.99</span>
                   </li>
               </ul>
@@ -642,6 +642,6 @@ session_start();
       </div>
     </section>
     <br><br><br>
-    <footer><p>Copyright &#169; 2025 iPhone DIY. All Rights Reserved.</p></footer>
+    <footer><p>Copyright &#139; 2025 iPhone DIY. All Rights Reserved.</p></footer>
   </body>
   </html>

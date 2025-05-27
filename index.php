@@ -19,7 +19,7 @@ session_start();
       <div>
         <ul class="nav-links">
           <li><a href="#categories">Categories</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="#about">About</a></li>
           <?php if (isset($_SESSION['username'])): ?>
           <?php if (isset($_SESSION['usertype']) && $_SESSION['usertype'] === 'admin'): ?>
             <li><a href="admin.php">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>

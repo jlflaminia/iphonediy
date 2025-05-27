@@ -12,6 +12,7 @@ session_start();
       <link rel="stylesheet" href="\iphonediy/css/style.css">
       <link rel="stylesheet" href="\iphonediy/css/mediaqueries.css">
       <link rel="stylesheet" href="\iphonediy/css/iphone-style.css">
+      <link rel="stylesheet" href="\iphonediy/css/admin-img.css">
   </head>
 <body>
 <nav id="desktop-nav">
@@ -49,9 +50,12 @@ session_start();
         </div>
       </div>
     </nav>
-    <div>
-      <a href="\iphonediy/ip16.php" style="color:#333;margin-left:10rem">&larr; Back to iPhone 16</a>
-    </div>
+      <div>
+        <a href="\iphonediy/index.php" style="color:#777;margin-left:10rem">Home ></a>
+        <a href="\iphonediy/index.php#categories" style="color:#777;">iPhone ></a>
+        <a href="\iphonediy/ip16.php" style="color:#777;">iPhone 16></a>
+        <a href="\iphonediy/ip16.php" style="color:black;"><b>iPhone 16 Screen</b></a>
+      </div>
     <section id="categories">
     <div class="container">
         <div class="product-image">
@@ -62,6 +66,14 @@ session_start();
 
         <div class="product-info">
             <h1>iPhone 16 Screen Replacement</h1>
+            <div class="admin-image">
+                <img src="\iphonediy/assets/jan.jpg" alt="ADMIN BONA">
+                <div class="admin-details">
+                    <p class="date"><b>Jan Michael Bona</b><br> Last updated on April 23, 2025</p>
+                </div>
+            </div>              
+
+            <hr>
             <p> <b>Introduction</b></p>
             <p>Use this guide to replace a broken, cracked, or non‑responsive screen in your iPhone 16.</p>
             <p>Note: Since you can't disconnect the screen during this repair, be especially careful not to use metal prying tools or touch exposed contacts in your iPhone.</p>

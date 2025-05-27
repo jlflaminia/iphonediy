@@ -12,7 +12,6 @@ session_start();
       <link rel="stylesheet" href="\iphonediy/css/style.css">
       <link rel="stylesheet" href="\iphonediy/css/mediaqueries.css">
       <link rel="stylesheet" href="\iphonediy/css/iphone-style.css">
-      <link rel="stylesheet" href="\iphonediy/css/admin-img.css">
   </head>
 <body>
 <nav id="desktop-nav">
@@ -66,14 +65,6 @@ session_start();
 
         <div class="product-info">
             <h1>iPhone 16 Screen Replacement</h1>
-            <div class="admin-image">
-                <img src="\iphonediy/assets/meon.jpg" alt="ADMIN SIMEON">
-                <div class="admin-details">
-                    <p class="date"><b>Simeon Kulalo</b><br> Last updated on April 23, 2025</p>
-                </div>
-            </div>              
-
-            <hr>
             <p> <b>Introduction</b></p>
             <p>Use this guide to replace a broken, cracked, or non‑responsive screen in your iPhone 16.</p>
             <p>Note: Since you can't disconnect the screen during this repair, be especially careful not to use metal prying tools or touch exposed contacts in your iPhone.</p>

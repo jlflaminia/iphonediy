@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPhone 16 - Camera</title>
+    <title>iPhone 12 - Camera</title>
       <link rel="shortcut icon" href="\iphonediy/assets/iphone-x.png" type="image/x-icon">
       <link rel="stylesheet" href="\iphonediy/css/style.css">
       <link rel="stylesheet" href="\iphonediy/css/mediaqueries.css">
@@ -53,29 +53,28 @@ session_start();
       <div>
         <a href="\iphonediy/index.php" style="color:#777;margin-left:10rem">Home ></a>
         <a href="\iphonediy/index.php#categories" style="color:#777;">iPhone ></a>
-        <a href="\iphonediy/ip16.php" style="color:#777;">iPhone 16></a>
-        <a href="\iphonediy/ip16.php" style="color:black;"><b>iPhone 16 Camera</b></a>
+        <a href="\iphonediy/ip12.php" style="color:#777;">iPhone 12></a>
+        <a href="#" style="color:black;"><b>iPhone 12 Camera</b></a>
       </div>
     <section id="categories">
     <div class="container">
         <div class="product-image">
             <img src="\iphonediy/ip/camera.png" alt="screen">
         </div>
-        <!-- <h1>iPhone 16 screen Replacement</h1>
+        <!-- <h1>iPhone 12 screen Replacement</h1>
         <p class="date">Last updated on April 23, 2025</p> -->
 
         <div class="product-info">
-            <h1>iPhone 16 Screen Replacement</h1>
+            <h1>iPhone 12 Screen Replacement</h1>
             <div class="admin-image">
                 <img src="\iphonediy/assets/meon.jpg" alt="ADMIN SIMEON">
                 <div class="admin-details">
-                    <p class="date"><b>Simeon Kulalo</b><br> Last updated on April 23, 2025</p>
+                    <p class="date"><b>Simeon Kulalo</b><br> Last updated on April 27, 2025</p>
                 </div>
-            </div>              
-
-            <hr>
+            </div>          
+            <hr>  
             <p> <b>Introduction</b></p>
-            <p>Use this guide to replace a broken, cracked, or non‑responsive screen in your iPhone 16.</p>
+            <p>Use this guide to replace a broken, cracked, or non‑responsive screen in your iPhone 12.</p>
             <p>Note: Since you can't disconnect the screen during this repair, be especially careful not to use metal prying tools or touch exposed contacts in your iPhone.</p>
         </div>          
     </section>
@@ -83,11 +82,11 @@ session_start();
             <h2>Parts</h2>
             <ul>
                 <li>
-                    <span class="part-name">iPhone 16 screen</span>
+                    <span class="part-name">iPhone 12 screen</span>
                     <span class="part-price">$29.99</span>
                 </li>
                 <li>
-                    <span class="part-name">iPhone 16 screen Adhesive</span>
+                    <span class="part-name">iPhone 12 screen Adhesive</span>
                     <span class="part-price">$4.99</span>
                 </li>
             </ul>
@@ -612,6 +611,6 @@ session_start();
         </div>
     </div>
   </section>
-  <footer><p>Copyright &#169; 2025 iPhone DIY. All Rights Reserved.</p></footer>
+  <footer><p>Copyright &#129; 2025 iPhone DIY. All Rights Reserved.</p></footer>
 </body>
 </html>

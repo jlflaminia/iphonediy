@@ -13,6 +13,7 @@ session_start();
       <link rel="stylesheet" href="\iphonediy/css/mediaqueries.css">
       <link rel="stylesheet" href="\iphonediy/css/iphone-style.css">
       <link rel="stylesheet" href="\iphonediy/css/admin-img.css">
+
   </head>
 <body>
 <nav id="desktop-nav">
@@ -53,8 +54,8 @@ session_start();
       <div>
         <a href="\iphonediy/index.php" style="color:#777;margin-left:10rem">Home ></a>
         <a href="\iphonediy/index.php#categories" style="color:#777;">iPhone ></a>
-        <a href="\iphonediy/ip16.php" style="color:#777;">iPhone 16></a>
-        <a href="\iphonediy/ip16.php" style="color:black;"><b>iPhone 16 Camera</b></a>
+        <a href="\iphonediy/ip15.php" style="color:#777;">iPhone 15></a>
+        <a href="#" style="color:black;"><b>iPhone 15 Camera</b></a>
       </div>
     <section id="categories">
     <div class="container">
@@ -69,11 +70,10 @@ session_start();
             <div class="admin-image">
                 <img src="\iphonediy/assets/meon.jpg" alt="ADMIN SIMEON">
                 <div class="admin-details">
-                    <p class="date"><b>Simeon Kulalo</b><br> Last updated on April 23, 2025</p>
+                    <p class="date"><b>Simeon Kulalo</b><br> Last updated on April 27, 2025</p>
                 </div>
-            </div>              
-
-            <hr>
+            </div>          
+            <hr>  
             <p> <b>Introduction</b></p>
             <p>Use this guide to replace a broken, cracked, or non‑responsive screen in your iPhone 16.</p>
             <p>Note: Since you can't disconnect the screen during this repair, be especially careful not to use metal prying tools or touch exposed contacts in your iPhone.</p>

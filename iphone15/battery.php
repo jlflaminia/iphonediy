@@ -54,29 +54,27 @@ session_start();
       <div>
         <a href="\iphonediy/index.php" style="color:#777;margin-left:10rem">Home ></a>
         <a href="\iphonediy/index.php#categories" style="color:#777;">iPhone ></a>
-        <a href="\iphonediy/ip16.php" style="color:#777;">iPhone 16></a>
-        <a href="\iphonediy/ip16.php" style="color:black;"><b>iPhone 16 Battery</b></a>
+        <a href="\iphonediy/ip15.php" style="color:#777;">iPhone 15></a>
+        <a href="#" style="color:black;"><b>iPhone 15 Battery</b></a>
       </div>
 
       <section id="categories">          
-          <!-- <a href="\iphonediy/ipiphone16\iphonediy/ipip16.php" style="color:#333;">&larr; Back to iPhone 16</a>     -->
       <div class="container">
           <div class="product-image">
               <img src="\iphonediy/ip/battery.png" alt="battery">
           </div>
-          <!-- <h1>iPhone 16 Battery Replacement</h1>
-          <p class="date">Last updated on April 23, 2025</p> -->
           <div class="product-info">
-              <h1>iPhone 16 Battery Replacement</h1>
-            <div class="admin-image">
-                <img src="\iphonediy/assets/jl.jpg" alt="ADMIN FLAMINIA">
-                <div class="admin-details">
-                    <p class="date"><b>JL Flaminia</b><br> Last updated on April 23, 2025</p>
-                </div>
-            </div>              
-            <hr>
+              <h1>iPhone 15 Battery Replacement</h1><br>
+              <div class="admin-image">
+                  <img src="\iphonediy/assets/jl.jpg" alt="ADMIN FLAMINIA">
+                  <div class="admin-details">
+                      <p class="date"><b>JL Flaminia</b><br> Last updated on April 23, 2025</p>
+                  </div>
+              </div>              
+
+              <hr>
               <p> <b>Introduction</b></p>
-              <p>The guide to replace the battery in your iPhone 16.</p>
+              <p>The guide to replace the battery in your iPhone 15.</p>
               <p>iPhone batteries are rated to 80% of their capacity for up to 500 charge cycles, or roughly 18-24 months. If your battery is draining quickly, it may be time to replace it.</p>
             </div>
           

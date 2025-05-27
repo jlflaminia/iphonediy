@@ -1,0 +1,28 @@
+        .admin-image {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .admin-image img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #eee;
+            margin-right: 15px;
+        }
+        .admin-details {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+
+        }
+        .admin-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1rem;
+        }
+        .date {
+            color: #555;
+            font-size: 0.95rem;
+        }
