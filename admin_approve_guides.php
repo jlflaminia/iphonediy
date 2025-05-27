@@ -1,14 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
-    header('Location: login.php');
-    exit();
-}
 
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = 'root';
+$pass = '';
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
@@ -35,7 +31,27 @@ $result = $conn->query("SELECT id, title, created_by, created_at FROM guides WHE
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/admin-dash.css">
+    <style>
+        .action-btn {
+            padding: 7px 18px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .toggle-btn {
+            background: #333;
+            color: #fff;
+        }
+        .toggle-btn:hover {
+            text-decoration: none;
+            background: #555;
+            color: #fff;
+        }
     </style>
+    
 </head>
 <body>
         <nav id="desktop-nav">
@@ -95,7 +111,7 @@ $result = $conn->query("SELECT id, title, created_by, created_at FROM guides WHE
                     <td><?= htmlspecialchars($row['created_by']) ?></td>
                     <td><?= htmlspecialchars($row['created_at']) ?></td>
                     <td>
-                        <a href="?approve_id=<?= $row['id'] ?>" class="approve-btn" onclick="return confirm('Approve this guide?')">Approve</a>
+                        <a href="?approve_id=<?= $row['id'] ?>" class="action-btn toggle-btn" onclick="return confirm('Approve this guide?')">Approve</a>
                     </td>
                 </tr>
             <?php endwhile; ?>

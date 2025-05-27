@@ -9,7 +9,7 @@ if (!isset($_SESSION['username']) || $_SESSION['usertype'] !== 'admin') {
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = 'root';
+$pass = '';
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {

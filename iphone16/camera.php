@@ -8,10 +8,10 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPhone 16 - Camera</title>
-    <link rel="shortcut icon" href="assets/ip-logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
-    <link rel="stylesheet" href="iphone-style.css">
+      <link rel="shortcut icon" href="\iphonediy/assets/iphone-x.png" type="image/x-icon">
+      <link rel="stylesheet" href="\iphonediy/css/style.css">
+      <link rel="stylesheet" href="\iphonediy/css/mediaqueries.css">
+      <link rel="stylesheet" href="\iphonediy/css/iphone-style.css">
     <style>
       .tools-scrollbox {
     margin: 2rem auto;

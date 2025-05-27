@@ -5,7 +5,7 @@ session_start();
 $host = 'localhost';
 $db = 'masterdiy';
 $user = 'root';
-$pass = 'root';
+$pass = '';
 
 $conn = new mysqli($host, $user, $pass, $db);
 

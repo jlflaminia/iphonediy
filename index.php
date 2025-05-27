@@ -21,7 +21,11 @@ session_start();
           <li><a href="#categories">Categories</a></li>
           <li><a href="#about">About Us</a></li>
           <?php if (isset($_SESSION['username'])): ?>
+          <?php if (isset($_SESSION['usertype']) && $_SESSION['usertype'] === 'admin'): ?>
+            <li><a href="admin.php">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+          <?php else: ?>
             <li><a href="#profile">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+          <?php endif; ?>
           <?php else: ?>
             <li><a href="login.php">Login</a></li>
           <?php endif; ?>
@@ -46,7 +50,11 @@ session_start();
           <!-- <li><a href="#login" onclick="toggleMenu()">Login</a></li> -->
           <!-- <li><a href="#login" onclick="openLoginModal()">Login</a></li> -->
           <?php if (isset($_SESSION['username'])): ?>
+          <?php if (isset($_SESSION['usertype']) && $_SESSION['usertype'] === 'admin'): ?>
+            <li><a href="admin.php">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+          <?php else: ?>
             <li><a href="#profile">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
+          <?php endif; ?>
           <?php else: ?>
             <li><a href="login.php">Login</a></li>
           <?php endif; ?>
