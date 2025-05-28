@@ -5,91 +5,59 @@ function toggleMenu() {
   icon.classList.toggle("open");
 }
 
+// Device mapping: keys are normalized search terms, values are page URLs
+const deviceMap = {
+  "16": "ip16.php",
+  "iphone 16": "ip16.php",
+  "ip16": "ip16.php",
+  "15": "ip15.php",
+  "iphone 15": "ip15.php",
+  "ip15": "ip15.php",
+  "14": "ip14.php",
+  "iphone 14": "ip14.php",
+  "ip14": "ip14.php",
+  "13": "ip13.php",
+  "iphone 13": "ip13.php",
+  "ip13": "ip13.php",
+  "12": "ip12.php",
+  "iphone 12": "ip12.php",
+  "ip12": "ip12.php",
+  "11": "ip11.php",
+  "iphone 11": "ip11.php",
+  "ip11": "ip11.php",
+  "xs": "ipxs.php",
+  "iphone xs": "ipxs.php",
+  "ipxs": "ipxs.php",
+  "x": "ipx.php",
+  "iphone x": "ipx.php",
+  "ipx": "ipx.php"
+};
 
+function findDevice() {
+  const input = document.getElementById('device-search-input');
+  let query = input.value.trim().toLowerCase();
 
-// // Get the "Login" nav link and the modal elements
-// const loginNavLink = document.querySelector('.nav-links li a[href="#login"]');
-// const loginModal = document.getElementById('login-modal');
-// const closeBtn = document.querySelector('.close-btn');
+  // Normalize input: remove "iphone" and extra spaces
+  query = query.replace(/iphone\s*/g, '').replace(/\s+/g, ' ').trim();
 
-// // Show the modal when the "Login" nav link is clicked
-// loginNavLink.addEventListener('click', (event) => {
-//   event.preventDefault(); // Prevent default anchor behavior
-//   loginModal.style.display = 'flex'; // Show the modal
-// });
+  // Try direct match
+  if (deviceMap[query]) {
+    window.location.href = deviceMap[query];
+    return;
+  }
 
-// // Hide the modal when the close button is clicked
-// closeBtn.addEventListener('click', () => {
-//   loginModal.style.display = 'none'; // Hide the modal
-// });
+  // Try with "iphone " prefix
+  if (deviceMap["iphone " + query]) {
+    window.location.href = deviceMap["iphone " + query];
+    return;
+  }
 
-// // Hide the modal when clicking outside the modal content
-// window.addEventListener('click', (event) => {
-//   if (event.target === loginModal) {
-//     loginModal.style.display = 'none'; // Hide the modal
-//   }
-// });
+  // Try with "ip" prefix
+  if (deviceMap["ip" + query]) {
+    window.location.href = deviceMap["ip" + query];
+    return;
+  }
 
-// function openLoginModal() {
-//   const modal = document.getElementById('login-modal');
-//   modal.style.display = 'block';
-// }
-
-// function closeLoginModal() {
-//   const modal = document.getElementById('login-modal');
-//   modal.style.display = 'none';
-// }
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const loginBtn = document.getElementById("login-btn");
-//   const registerBtn = document.getElementById("register-btn");
-//   const loginModal = document.getElementById("login-modal");
-//   const registerModal = document.getElementById("register-modal");
-//   const closeBtns = document.querySelectorAll(".close-btn");
-
-//   // Open the login modal
-//   loginBtn.addEventListener("click", (e) => {
-//       e.preventDefault();
-//       loginModal.style.display = "flex";
-//   });
-
-//   // Open the register modal
-//   registerBtn.addEventListener("click", (e) => {
-//       e.preventDefault();
-//       registerModal.style.display = "flex";
-//   });
-
-//   // Close modals
-//   closeBtns.forEach((btn) => {
-//       btn.addEventListener("click", () => {
-//           loginModal.style.display = "none";
-//           registerModal.style.display = "none";
-//       });
-//   });
-
-//   // Close modals when clicking outside the modal content
-//   window.addEventListener("click", (e) => {
-//       if (e.target === loginModal) {
-//           loginModal.style.display = "none";
-//       }
-//       if (e.target === registerModal) {
-//           registerModal.style.display = "none";
-//       }
-//   });
-// });
-
-
-// // Close modal when clicking outside of it
-// window.onclick = function(event) {
-//   const modal = document.getElementById('login-modal');
-//   if (event.target === modal) {
-//     modal.style.display = 'none';
-//   }
-// };
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   if (window.location.hash === "#login") {
-//       openLoginModal(); // Ensure this function is defined to open the login modal
-//   }
-// });
-
+  // Not found: show alert or handle gracefully
+  alert("Device not found. Please enter a valid iPhone model (e.g., 'iPhone 16', 'XS', 'X').");
+}

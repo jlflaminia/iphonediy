@@ -122,6 +122,9 @@ $result = $conn->query("SELECT id, title, created_by, created_at FROM guides WHE
             <div class="no-guides">There are no guides pending approval.</div>
         <?php endif; ?>
     </div>
+        <footer>
+        <p>&copy; <?= date('Y') ?> Master DIY. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
 <?php $conn->close(); ?>

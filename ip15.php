@@ -42,6 +42,7 @@ $conn->close();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/iphone-style.css">
+    <link rel="stylesheet" href="css/user-guide.css">
     <style>
       .hamburger-menu .menu-links {
         z-index: 1000;
@@ -74,7 +75,7 @@ $conn->close();
       </div>
 </nav>
     <nav id="hamburger-nav">
-      <div class="logo">iPhone DIY</div>
+      <div class="logo"><a href="index.php" style="text-decoration:none;color:inherit;">iPhone DIY</a></div>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
           <span></span>
@@ -107,7 +108,7 @@ $conn->close();
             <h1>iPhone 15 Repair</h1>
             <p>Repair and disassembly information for the iPhone 15, released September 20th, 2024. It features a 6.1" OLED display, a 48 MP dual-camera system, and USB-C port.</p>
             <div class="actions">
-                <button onclick="location.href='guide.php'">Create a Guide</button>
+                <button onclick="location.href='guide15.php'">Create a Guide</button>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 // session_start();
 // $host = 'hapart.ctsqsqyign71.ap-southeast-1.rds.amazonaws.com';
 // $db = 'masterdiy';
-// $user = 'admin'; 
+// $user = 'admin   '; 
 // $pass = 'jljeongyeon1';
 
 $host = 'localhost';
@@ -63,7 +63,6 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/ip-wlogo.png" type="image/x-icon">
     <title>Register</title>
     <link rel="shortcut icon" href="assets/iphone-x.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">

@@ -75,7 +75,7 @@ $conn->close();
       </div>
 </nav>
     <nav id="hamburger-nav">
-      <div class="logo">iPhone DIY</div>
+      <div class="logo"><a href="index.php" style="color:inherit;">iPhone DIY</a></div>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
           <span></span>

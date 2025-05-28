@@ -15,7 +15,7 @@ session_start();
   </head>
 <body>
 <nav id="desktop-nav">
-      <div class="logo">iPhone DIY</div>
+      <div class="logo"><a href="\iphonediy/index.php" style="text-decoration:none;color:inherit;">iPhone DIY</a></div>
       <div>
         <ul class="nav-links">
           <?php if (isset($_SESSION['username'])): ?>
@@ -30,7 +30,7 @@ session_start();
       </div>
     </nav>
     <nav id="hamburger-nav">
-      <div class="logo">iPhone DIY</div>
+      <div class="logo"><a href="index.php" style="text-decoration:none;color:inherit;">iPhone DIY</a></div>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
           <span></span>

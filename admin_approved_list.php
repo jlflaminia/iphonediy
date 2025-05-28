@@ -93,10 +93,10 @@ $result = $conn->query("SELECT id, title, created_by, created_at FROM guides WHE
         <?php else: ?>
             <div class="no-guides">There are no approved guides.</div>
         <?php endif; ?>
-        <div style="margin-top: 24px;">
-            <a href="admin.php" style="color:#2980b9;text-decoration:underline;">&larr; Back to Admin Dashboard</a>
-        </div>
     </div>
+    <footer>
+        <p>&copy; <?= date('Y') ?> Master DIY. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
 <?php $conn->close(); ?>

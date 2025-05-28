@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2025 at 04:26 PM
+-- Generation Time: May 21, 2025 at 05:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -82,16 +82,18 @@ CREATE TABLE `guides` (
   `wisdom` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`wisdom`)),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `step_images` text DEFAULT NULL,
-  `approval_status` varchar(20) NOT NULL DEFAULT 'pending'
+  `approval_status` varchar(20) NOT NULL DEFAULT 'pending',
+  `approved` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `guides`
 --
 
-INSERT INTO `guides` (`id`, `created_by`, `guide_type`, `device`, `part`, `title`, `introduction`, `difficulty_estimate`, `tools`, `conclusion`, `steps`, `step_type`, `wisdom`, `created_at`, `step_images`, `approval_status`) VALUES
-(3, '', 'Replacement', 'iPhone 19', 'Battery', 'iPhone 19 Battery Replacement', 'hello guys welcome to my guide, ngayon po ay tuturuan ko kayo magpalit ng batter ng iphone 19', 'Moderate', 'Battery at iba pa, bahala na kayo', 'yeah!!', '[\"hehehe\",\"of course, magtatanggal tayo ng screw yah!!\",\"painitin mo para matunaw yung dikit\",\"the end, pwede mo na ulit gamitin yang phone mong bulok!!\"]', '[]', '[\"Dahil kung hindi naka off yan, next!!\",\"dahil kung hindi mo tatanggalan ng screws yan di mo yan mabubuksan ha!\",\"dahil mahihirapan kang buksan yan kung grabe yung adhesive ha!!\",\"yun na yun, manood ka nalang sa youtube\\r\\ntinamad na ko!\"]', '2025-05-20 11:39:55', '[\"uploads\\/stepimg_682c6a0b823a3_2.jpg\",\"uploads\\/stepimg_682c6a0b83995_4.jpg\",\"uploads\\/stepimg_682c6a0b83fcd_9.jpg\",\"uploads\\/stepimg_682c6a0b84502_49.jpg\"]', 'approved'),
-(25, 'bona', 'Replacement', 'iPhone 34', 'Screen', 'iPhone 34 Screen Replacement by BONA hehe!', 'tsssss!!!', 'No estimate', 'arga', 'argar', '[\"\"]', '[]', '[\"\"]', '2025-05-20 14:23:13', '[null]', 'pending');
+INSERT INTO `guides` (`id`, `created_by`, `guide_type`, `device`, `part`, `title`, `introduction`, `difficulty_estimate`, `tools`, `conclusion`, `steps`, `step_type`, `wisdom`, `created_at`, `step_images`, `approval_status`, `approved`) VALUES
+(70, 'simeon', 'adrgrdg', 'iPhone 16', 'rdgrg', 'gsgsgr', 'agerga', 'No estimate', 'rgrg', 'srgserg', '[\"rsg\"]', '[]', '[\"\"]', '2025-05-21 15:31:33', '[null]', 'approved', 1),
+(71, 'simeon', 'faef', 'iPhone 16', 'aefa', 'aefae', 'aef', 'No estimate', '', '', '[\"\"]', '[]', '[\"\"]', '2025-05-21 15:34:38', '[null]', 'pending', 1),
+(72, 'simeon', 'argarg', 'iPhone 16', 'argarg', 'ararg', 'arg', 'No estimate', '', '', '[\"\"]', '[]', '[\"\"]', '2025-05-21 15:36:14', '[null]', 'pending', 1);
 
 -- --------------------------------------------------------
 
@@ -112,7 +114,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `usertype`) VALUES
 (28, 'ADMIN FLAMINIA', '$2y$10$ywly1EEzh3t9tTizL/KZi.xx6eF/amSoSC4drRGFv/x8Mwbw74HF6', 'admin'),
-(29, 'jlflaminia', '$2y$10$uGBSB1L7FvbmMbBKvdnCzejM8EezaKSbe.4O/SS5PQb0rsfyV.Mh6', 'user'),
+(29, 'jlflaminia', '$2y$10$uGBSB1L7FvbmMbBKvdnCzejM8EezaKSbe.4O/SS5PQb0rsfyV.Mh6', 'admin'),
 (30, 'simeon', '$2y$10$Za3EJgjguCAnyRN7sCQVBuypClkWGD3Qd4jSJtA3YedjTurYgjCqq', 'user'),
 (31, 'janbona', '$2y$10$NEyjoUAtM2c.0WLijmhJgeg2cpII1QgtXFo5sM38qlg/NDtPwNPKa', 'user'),
 (32, 'lourdes', '$2y$10$AWm.5x0v.aoammPwLAhPnO2a1lkbGB4dMmw6jQC0tLW7uh4ZHVQAq', 'user'),
@@ -145,7 +147,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `guides`
 --
 ALTER TABLE `guides`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `users`

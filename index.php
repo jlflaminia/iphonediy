@@ -15,7 +15,7 @@ session_start();
   </head>
   <body>
     <nav id="desktop-nav">
-      <div class="logo">iPhone DIY</div>
+      <div class="logo"><a href="index.php" style="text-decoration:none;color:inherit;">iPhone DIY</a></div>
       <div>
         <ul class="nav-links">
           <li><a href="#categories">Categories</a></li>
@@ -36,7 +36,7 @@ session_start();
       </div>
     </nav>
     <nav id="hamburger-nav">
-      <div class="logo">iPhone DIY</div>
+      <div class="logo"><a href="index.php" style="text-decoration:none;color:inherit;">iPhone DIY</a></div>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
           <span></span>
@@ -47,8 +47,6 @@ session_start();
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
           <li><a href="#categories" onclick="toggleMenu()">Categories</a></li>
           <li><a href="#news" onclick="toggleMenu()">News</a></li>
-          <!-- <li><a href="#login" onclick="toggleMenu()">Login</a></li> -->
-          <!-- <li><a href="#login" onclick="openLoginModal()">Login</a></li> -->
           <?php if (isset($_SESSION['username'])): ?>
           <?php if (isset($_SESSION['usertype']) && $_SESSION['usertype'] === 'admin'): ?>
             <li><a href="admin.php">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></a></li>
@@ -74,47 +72,22 @@ session_start();
         <h1 class="title">iPhone DIY</h1>
         <p class="section__text__p2">Find the best repair guides</p>
         <div class="btn-container">
-          <div class="search-box">
-            
-            <input type="text" class="btn btn-color-3" placeholder="Search for a device">
-            <button class="btn btn-color-1" onclick="location.href='search.php'">
-            Find Device</button>
-          </div>  
+           <form class="search-box" method="get" action="search.php" style="display:flex;gap:8px;width:100%;max-width:400px;margin:0 auto;">
+            <input
+              type="text"
+              name="q"
+              id="device-search-input"
+              class="btn btn-color-3"
+              placeholder="Search for a device or guide (e.g. iPhone 16, battery, XS, X)"
+              style="flex:1 1 180px;min-width:0;"
+              autofocus
+              required
+            >
+            <button class="btn btn-color-1" type="submit">Find Device</button>
+          </form>  
         </div>
       </div>
     </section>
-    <!-- <section id="about">    
-      <h1 class="title">Master the Art of Repair</h1>
-      <p class="section__text__p1">Your one-stop resource for all your repair needs</p>
-      <div class="main-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container sec-cat">
-            <div class="imgs-container">
-              <img src="./assets/samp.jpg" alt="Step-by-Step Guides" class="project-img"/>
-            </div>
-            <p class="about-info">Learn how to fix anything with simple and instructions.</p>
-            <div class="btn-container">
-              
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='step-by-step.html'">Step-by-Step Guides</button>
-            </div>
-          </div>
-          <div class="details-container color-container sec-cat">
-            <div class="imgs-container">
-              <img
-                src="./assets/samp.jpg" alt="Project 2" class="project-img"/>
-            </div>
-            <p class="about-info">Precision tools and thousands of parts to get the job done.</p>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='quality-parts.html'">Quality Parts and Tools</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#categories'"/>
-    </section> -->
-    
     <section id="categories">
       <h1 class="title">Categories</h1>
       <p class="section__text__p1">Fix It Right: Your Ultimate DIY Repair Resource.</p>

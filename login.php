@@ -3,7 +3,7 @@
 session_start();
 // $host = 'hapart.ctsqsqyign71.ap-southeast-1.rds.amazonaws.com';
 // $db = 'masterdiy';
-// $user = 'admin'; 
+// $user = 'root'; 
 // $pass = 'jljeongyeon1'; 
 
 $host = 'localhost';
